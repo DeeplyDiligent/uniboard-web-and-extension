@@ -7,6 +7,7 @@ class RegisterUser extends Component {
     // Initialize the FirebaseUI Widget using Firebase.
     this.ui = new firebaseui.auth.AuthUI(firebase.auth());
     this.ui.start("#firebaseui-auth-container", {
+      signInSuccessUrl: 'chrome-extension://jdndegeahekeibdccphicdeofbgckien/index.html',
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID

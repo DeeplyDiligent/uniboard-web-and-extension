@@ -8,9 +8,7 @@
     "default_icon": "favicon.ico"
   },
   "background": {
-    "scripts": [
-      "backgroundScripts/background.js"
-    ],
+    "scripts": ["backgroundScripts/background.js"],
     "persistent": true
   },
   "permissions": [
@@ -20,6 +18,28 @@
     "unlimitedStorage",
     "tabs",
     "downloads"
+  ],
+  "web_accessible_resources": [
+    "index.html",
+    "img/spinner.gif",
+    "img/icon.png"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://lms.monash.edu/my/",
+        "https://lms.monash.edu/my/index.php"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "js/select2.min.js",
+        "js/tingle.min.js",
+        "js/moment.js",
+        "inject/expandsubjects.js",
+        "inject/inject.js"
+      ],
+      "css": ["css/select2.min.css", "css/firebaseui.css", "css/tingle.min.css"]
+    }
   ],
   "version": "1.0"
 }
