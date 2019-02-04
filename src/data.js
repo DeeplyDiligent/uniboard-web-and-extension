@@ -26,6 +26,16 @@ class Database {
     return parseMoodleData;
   }
 
+  async getSyncStatus(){
+    let dataPromise = new Promise(function(resolve) {
+      chrome.storage.local.get(null, function(result) {
+        let sendOnline = result["sendDataOnline"];
+        resolve(sendOnline);
+      });
+    });
+    return dataPromise;
+  }
+
   parseDataForFirebase(moodleData) {
     var dataToSendOnline = { date: new Date() };
 

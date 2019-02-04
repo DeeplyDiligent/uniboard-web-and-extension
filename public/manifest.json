@@ -8,7 +8,12 @@
     "default_icon": "favicon.ico"
   },
   "background": {
-    "scripts": ["backgroundScripts/background.js"],
+    "scripts": [
+      "js/jquery/jquery.min.js",
+      "backgroundScripts/fb/firebase-app.js",
+      "backgroundScripts/fb/firebase-firestore.js",
+      "backgroundScripts/background.js"
+    ],
     "persistent": true
   },
   "permissions": [
@@ -19,11 +24,7 @@
     "tabs",
     "downloads"
   ],
-  "web_accessible_resources": [
-    "index.html",
-    "img/spinner.gif",
-    "img/icon.png"
-  ],
+  "web_accessible_resources": ["index.html", "img/spinner.gif", "img/icon.png"],
   "content_scripts": [
     {
       "matches": [
@@ -41,5 +42,6 @@
       "css": ["css/select2.min.css", "css/firebaseui.css", "css/tingle.min.css"]
     }
   ],
+  "debug": true,
   "version": "1.0"
 }
