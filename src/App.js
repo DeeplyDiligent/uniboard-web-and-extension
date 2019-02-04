@@ -12,15 +12,8 @@ class App extends Component {
   state = { loading: true, notFound: false };
   constructor(props) {
     super(props);
-    database.createRealtimeDataDictFromDatabaseId(this.props.uid).then(db => {
-      db.onUpdate(
-        data => {
-          this.setState({ data: data, loading: false });
-        },
-        () => {
-          this.setState({ notFound: true, loading: false });
-        }
-      );
+    database.onUpdate(data => {
+      this.setState({ data: data, loading: false });
     });
   }
   render() {
@@ -39,7 +32,6 @@ class App extends Component {
                 <SidebarSearch db={this.state.data} {...props} />
               )}
             />
-            <Navbar loggedIn={true} />
 
             <Home data={this.state.data} />
           </div>

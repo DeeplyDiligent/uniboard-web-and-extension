@@ -7,7 +7,6 @@ class SearchResults extends Component {
   state = {};
   componentWillMount() {
     this.allData = database.transformToFlatDict(this.props.data);
-    console.log(this.allData)
     var options = {
       shouldSort: true,
       tokenize: true,
