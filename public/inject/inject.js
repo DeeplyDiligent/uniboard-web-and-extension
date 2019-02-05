@@ -286,7 +286,7 @@ chrome
                         if (subjectsSelected == null) {
                             modal.open();
                             showSubjectSelector([]);
-                            backgroundExpandAll();
+                            // backgroundExpandAll();
                         } else if (subjectsSelected != null) {
                             showSubjectSelector(subjectsSelected);
                             if (result['MoodleBeast']){

@@ -70,7 +70,7 @@ class FirebaseSyncOff extends Component {
       <button
         onClick={this.modal1}
         title="Set Up Mobile Sync"
-        class="bg-transparent hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded text-xl ml-6"
+        className="bg-transparent hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded text-xl ml-6"
       >
         <i className="fas fa-mobile-alt" />
       </button>

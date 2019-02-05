@@ -5,16 +5,18 @@ import UnitBoards from "./unitBoards";
 import FirebaseSyncOff from "../nav/firebaseSyncOff";
 import PopOut from "../nav/popOut";
 import database from "../../data";
+import LastUpdated from "./lastUpdated";
 const FirebaseSyncOn = () => (
   <a target="_blank" href="https://uniboard.app/">
     <button
       title="Go To Mobile App"
-      class="bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white py-2 px-4 border border-green hover:border-transparent rounded text-xl ml-6 h-full"
+      className="bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white py-2 px-4 border border-green hover:border-transparent rounded text-xl ml-6 h-full"
     >
       <i className="fas fa-mobile-alt" />
     </button>
   </a>
 );
+
 class DesktopMainInterface extends Component {
   state = { firebaseSyncOn: false };
   componentWillMount() {
@@ -39,6 +41,7 @@ class DesktopMainInterface extends Component {
           <SearchBox handleChange={this.handleChange} />
           {this.state.firebaseSyncOn ? <FirebaseSyncOn /> : <FirebaseSyncOff onChange={this.updateIconBasedOnSyncStatus} />}
           <PopOut />
+          <LastUpdated />
         </div>
         {this.state.searchString ? (
           <SearchResults

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import firebase from 'firebase';
+import firebase from "firebase";
 class GetTheExtension extends Component {
   state = {};
   logout = () => {
@@ -19,7 +19,7 @@ class GetTheExtension extends Component {
           Logout
         </button>
         &emsp;
-        <a href="//moodlehero.net">
+        <a href="https://chrome.google.com/webstore/detail/synopsis-your-moodle-hero/ikffeebmjnccffbijpcnlhadgdebadmc">
           <button className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 my-2 rounded">
             Get The Extension
           </button>
