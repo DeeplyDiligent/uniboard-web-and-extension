@@ -1,15 +1,47 @@
 {
-  "short_name": "Uniboard",
-  "name": "Uniboard - Moodle Made Easy",
-  "icons": [
+  "short_name": "React App",
+  "content_security_policy": "script-src 'self' 'sha256-GgRxrVOKNdB4LrRsVPDSbzvfdV4UqglmviH9GoBJ5jk='; object-src 'self'",
+  "name": "React Extension",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_title": "Synopsis",
+    "default_icon": "uniboard.svg"
+  },
+  "background": {
+    "scripts": [
+      "js/jquery/jquery.min.js",
+      "backgroundScripts/fb/firebase-app.js",
+      "backgroundScripts/fb/firebase-firestore.js",
+      "backgroundScripts/background.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "contentSettings",
+    "notifications",
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "downloads"
+  ],
+  "web_accessible_resources": ["index.html", "img/spinner.gif", "img/icon.png"],
+  "content_scripts": [
     {
-      "src": "uniboard.svg",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "matches": [
+        "https://lms.monash.edu/my/",
+        "https://lms.monash.edu/my/index.php"
+      ],
+      "js": [
+        "js/jquery/jquery.min.js",
+        "js/select2.min.js",
+        "js/tingle.min.js",
+        "js/moment.js",
+        "inject/expandsubjects.js",
+        "inject/inject.js"
+      ],
+      "css": ["css/select2.min.css", "css/firebaseui.css", "css/tingle.min.css"]
     }
   ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "debug": true,
+  "version": "1.0"
 }

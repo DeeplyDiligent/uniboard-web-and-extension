@@ -24,7 +24,7 @@
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
-    "build": "./build.sh",
+    "build": "bash ./build.sh",
     "watch": "npm-watch"
   },
   "watch": {

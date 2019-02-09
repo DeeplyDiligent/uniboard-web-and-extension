@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as firebase from "firebase/app";
+import firebase from "firebase";
 import firebaseui from "firebaseui";
 
 class RegisterUser extends Component {
@@ -7,15 +7,11 @@ class RegisterUser extends Component {
     // Initialize the FirebaseUI Widget using Firebase.
     this.ui = new firebaseui.auth.AuthUI(firebase.auth());
     this.ui.start("#firebaseui-auth-container", {
+      signInSuccessUrl: 'chrome-extension://jdndegeahekeibdccphicdeofbgckien/index.html',
       signInOptions: [
-        {
-          provider: firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-          customParameters: {
-            prompt: 'select_account'
-          }
-        }
-      ],
-      credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO
+        // Leave the lines as is for the providers you want to offer your users.
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+      ]
       // Other config options...
     });
   }
@@ -25,9 +21,9 @@ class RegisterUser extends Component {
   render() {
     // console.log(firebase);
     return (
-      <div className="p-12 text-center">
-        <div className="py-6 text-xl">
-          After getting the extension, please Sign In with your Monash University Google Account Below:
+      <div className="p-2 pt-6 text-center">
+        <div>
+          Please Sign In with your Monash University Google Account Below:
         </div>
         <div id="firebaseui-auth-container" />
       </div>

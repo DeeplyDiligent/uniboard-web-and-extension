@@ -1,5 +1,7 @@
 BUILD_TYPE='extension'
 echo "Building $BUILD_TYPE"
+rm -r ./public
+rm -r ./src
 if [ "$BUILD_TYPE" == "extension" ]
 then
 cp -R ./src-extension ./src

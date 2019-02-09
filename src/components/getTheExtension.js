@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import * as firebase from "firebase/app";
+import firebase from "firebase";
 class GetTheExtension extends Component {
   state = {};
   logout = () => {
