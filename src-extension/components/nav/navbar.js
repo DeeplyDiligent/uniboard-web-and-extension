@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {isMobile} from 'react-device-detect';
+import {isMobileOnly} from 'react-device-detect';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import firebase from 'firebase';
 
