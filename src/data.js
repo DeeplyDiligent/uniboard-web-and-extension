@@ -1,113 +1,63 @@
-import firebase from "firebase";
+import * as firebase from "firebase/app";
+import '@firebase/firestore';
 import he from "he";
 import { transform } from "lodash";
-import $ from "jquery";
-/*global chrome*/
 
 class Database {
   constructor() {
-    console.log("constructor of data.js");
-  }
+    let config = {
+      apiKey: "AIzaSyDummAaSk7h1T1AuC2BsU8zhTAH3H4tVNg",
+      authDomain: "uniboard.app",
+      databaseURL: "https://synopsis-465b0.firebaseio.com",
+      projectId: "synopsis-465b0",
+      storageBucket: "synopsis-465b0.appspot.com",
+      messagingSenderId: "1062729892729"
+    };
+    firebase.initializeApp(config);
 
-  async getMoodleDataFromChromeStorage() {
-    console.log("getting moodle data from chrome storage");
-    let dataPromise = new Promise(function(resolve) {
-      chrome.storage.local.get(null, function(result) {
-        let moodleBeastData = result["MoodleBeast"];
-        let data = moodleBeastData;
-        resolve(data);
-      });
+    this.db = firebase.firestore();
+
+    // Disable deprecated features
+    this.db.settings({
+      timestampsInSnapshots: true
     });
-    let moodleData = await dataPromise;
-
-    let parseMoodleData = this.parseDataForApp(moodleData);
-
-    console.log(parseMoodleData);
-    return parseMoodleData;
+    //firebase.auth().onAuthStateChanged(this.changeAuthState);
   }
 
-  async getSyncStatus(){
-    let dataPromise = new Promise(function(resolve) {
-      chrome.storage.local.get(null, function(result) {
-        let sendOnline = result["sendDataOnline"];
-        resolve(sendOnline);
-      });
-    });
-    return dataPromise;
-  }
-
-  parseDataForFirebase(moodleData) {
-    var dataToSendOnline = { date: new Date() };
-
-    Object.keys(moodleData).map(function(i, j) {
-      let html = $(moodleData[i]["innerHTML"]);
-      dataToSendOnline[i] = {};
-      html.find("p .item-content-wrap").each(function() {
-        let childrenIds = $(this)
-          .parent()
-          .parent()
-          .parent()
-          .children("ul")
-          .children("li")
-          .children("p")
-          .toArray()
-          .map(function(k) {
-            return k.id;
-          });
-
-        let elemId = $(this)
-          .parent()
-          .parent()
-          .attr("id");
-        elemId = elemId ? elemId : "no_id";
-
-        let imgHref = $(this)
-          .siblings("img")
-          .attr("src");
-        imgHref = imgHref ? imgHref : null;
-
-        let imgAlt = $(this)
-          .siblings("img")
-          .attr("alt");
-        imgAlt = imgAlt ? imgAlt : null;
-
-        let link = $(this)
-          .parent()
-          .attr("href");
-        link = link ? link : null;
-
-        dataToSendOnline[i][elemId] = {
-          text: $(this).html(),
-          children: childrenIds,
-          imgAlt: imgAlt,
-          img: imgHref,
-          link: link
-        };
-      });
-    });
-    return dataToSendOnline;
-  }
-
-  parseDataForApp(rawData) {
-    rawData = this.parseDataForFirebase(rawData);
-    delete rawData["date"];
-    let dict = {};
-    for (const courseName in rawData) {
-      const courseDict = rawData[courseName];
-      dict[courseName] = this._parseCourse(courseDict);
+  async createDataDictFromDatabaseId(databaseId) {
+    let rawData = await this._getDictFromDatabaseId(databaseId);
+    if (rawData) {
+      delete rawData["date"];
+      let dict = {};
+      for (const courseName in rawData) {
+        const courseDict = rawData[courseName];
+        dict[courseName] = this._parseCourse(courseDict);
+      }
+      return dict;
     }
-    return dict;
+    return false;
   }
 
-  onUpdate(func) {
-    let context = this;
-    chrome.storage.onChanged.addListener(function() {
-      console.log("doneupdate");
-      context.getMoodleDataFromChromeStorage().then(x => {
-        func(x);
-      });
+  async createRealtimeDataDictFromDatabaseId(databaseId) {
+    this.databaseRef = await this._getRealtimeRefFromDatabaseId(databaseId);
+    return this;
+  }
+
+  onUpdate(func, noData) {
+    this.databaseRef.onSnapshot(doc => {
+      let rawData = doc.data();
+      if (rawData) {
+        delete rawData["date"];
+        let dict = {};
+        for (const courseName in rawData) {
+          const courseDict = rawData[courseName];
+          dict[courseName] = this._parseCourse(courseDict);
+        }
+        func(dict);
+      } else {
+        noData();
+      }
     });
-    this.getMoodleDataFromChromeStorage().then(x => func(x));
   }
 
   async getDatabaseIdFromUserId(uid) {
@@ -118,13 +68,13 @@ class Database {
     return id.data().databaseID;
   }
 
-  getAllAttachments(branchData){
+  getAllAttachments(branchData) {
     let allAttachments = branchData.assignments
-    .concat(branchData.files)
-    .concat(branchData.folders)
-    .concat(branchData.forums)
-    .concat(branchData.links)
-    .concat(branchData.quizzes);
+      .concat(branchData.files)
+      .concat(branchData.folders)
+      .concat(branchData.forums)
+      .concat(branchData.links)
+      .concat(branchData.quizzes);
     return allAttachments;
   }
 
@@ -133,7 +83,7 @@ class Database {
     transform(data, (_, value, key) => {
       let subject = key;
       transform(value, (_, value, key) => {
-        let allAttachments = this.getAllAttachments(value)
+        let allAttachments = this.getAllAttachments(value);
         allAttachments.map((value, key) => {
           value["subject"] = subject;
           dataArray.push(value);

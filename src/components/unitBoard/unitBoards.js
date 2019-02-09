@@ -9,7 +9,7 @@ class UnitBoards extends Component {
   
     render() {
         return ( 
-            <div className="flex flex-grow max-w-5xl p-2" style={{ overflowX:"scroll", overflowY:"hidden"}}>
+            <div className="flex flex-grow max-w-full p-2" style={{ overflowX:"scroll", overflowY:"hidden"}}>
             {Object.keys(this.props.data).map((key, index) => {
                 return <UnitBoard unitData={this.props.data[key]} unitName={key} unitCode={key.unitCode} key={key} number={index}/>
             })}

@@ -4,10 +4,12 @@ rm -r ./public
 rm -r ./src
 if [ "$BUILD_TYPE" == "extension" ]
 then
-cp -R ./src-extension ./src
-cp -R ./public-extension ./public
+mkdir -p ./src
+cp -rf ./src-web/* ./src
+cp -rf ./src-extension/* ./src
+cp -rf ./public-extension ./public
 else
-cp -R ./src-web ./src
-cp -R ./public-web ./public
+cp -rf ./src-web ./src
+cp -rf ./public-web ./public
 fi
 react-scripts build

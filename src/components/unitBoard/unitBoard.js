@@ -4,10 +4,6 @@ import database from '../../data'
 import OptionsMenu from './optionsMenu';
 class UnitBoard extends Component {
     state = {optionsHidden:true}
-    constructor(props){
-        super(props);
-        this.shortUnitName = database.shortenName(this.props.unitName)
-    }
     showOptions = () => {
         if (this.state.optionsHidden){
             this.setState({optionsHidden:false})
@@ -24,14 +20,14 @@ class UnitBoard extends Component {
             <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink" >
                 <div className="flex1">
                     <i className="text-2xl text-grey fab fa-flickr"></i>
-                    <span className=" text-2xl font-semibold ml-4">{this.shortUnitName}</span>
+                    <span className=" text-3xl font-semibold ml-4">{database.shortenName(this.props.unitName)}</span>
                 </div>
-                <div className="flex1 mt-1 cursor-pointer" onClick = {this.showOptions}>
+                {/* <div className="flex1 mt-2 cursor-pointer px-3" onClick = {this.showOptions}>
                     <div className="absolute">
                         <i className="text-xl text-grey-dark fas fa-ellipsis-v"></i>
-                        <OptionsMenu hidden={this.state.optionsHidden} data={this.props.unitData} unitName={this.shortUnitName}/>
+                        <OptionsMenu hidden={this.state.optionsHidden}/>
                     </div>
-                </div>
+                </div> */}
             </div>
             <div className="px-4 py-2" style={ {overflowY: 'scroll'}}>
                 {Object.keys(this.props.unitData).map((key, _)=>{
