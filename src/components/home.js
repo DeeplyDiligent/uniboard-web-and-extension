@@ -11,7 +11,7 @@ class Home extends Component {
     if (this.props.data) {
       return <MainInterface data = {this.props.data}  />;
     } else {
-      return <div className="loader">Begging Moodle for Data...</div>;
+      return <i className="fas fa-circle-notch fa-spin loader text-5xl"></i>;
     }
   }
 }
