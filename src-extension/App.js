@@ -7,6 +7,7 @@ import SidebarSearch from "./components/sidebarSearch/sidebarSearch";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GetTheExtension from "./components/getTheExtension";
 import database from "./data";
+import "./css/app.css";
 
 class App extends Component {
   state = { loading: true, notFound: false };

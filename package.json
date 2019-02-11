@@ -24,7 +24,7 @@
     "typescript": "^3.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "bash ./start.sh",
     "build": "bash ./build.sh",
     "watch": "npm-watch"
   },

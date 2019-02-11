@@ -2,7 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/uniboard.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/appleuniboard.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <link rel="apple-touch-startup-image" href="%PUBLIC_URL%/uniboard.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="196x196" href="%PUBLIC_URL%/uniboard.png">
+    <link rel="shortcut icon" sizes="128x128" href="%PUBLIC_URL%/uniboard.png">
+
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -17,6 +26,9 @@
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="pwa-setup" href="%PUBLIC_URL%/manifest.json" >
+    <script async src="%PUBLIC_URL%/pwa.js"></script> 
+    <script> var iOS = !!navigator.platform && /iPhone|iPod/.test(navigator.platform); if(iOS) { document.querySelector('link[rel="manifest"]').setAttribute("rel", "no-on-ios"); } </script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -31,6 +43,7 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script src="https://smartlock.google.com/client"></script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

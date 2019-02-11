@@ -5,7 +5,7 @@
   "manifest_version": 2,
   "browser_action": {
     "default_title": "Synopsis",
-    "default_icon": "uniboard.svg"
+    "default_icon": "appleuniboard.png"
   },
   "background": {
     "scripts": [
