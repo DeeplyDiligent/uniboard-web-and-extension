@@ -54,6 +54,9 @@ class Navbar extends Component {
                     {/* was in here before */}
                     </div>
                     <div>
+                    <Link to="/home/sidebar/todolist" className="block mt-4 lg:inline-block lg:mt-0 text-purple hover:text-purple-light mr-4">
+                        To Do List
+                    </Link>
                     <Link to="/app" className="block mt-4 lg:inline-block lg:mt-0 text-purple hover:text-purple-light mr-4">
                         Home
                     </Link>

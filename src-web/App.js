@@ -34,6 +34,10 @@ class App extends Component {
               render={props => <Sidebar data={this.state.data} {...props} />}
             />
             <Route
+              path="/home/sidebar/todolist"
+              render={props => <Sidebar />}
+            />
+            <Route
               path="/home/search"
               render={props => (
                 <SidebarSearch db={this.state.data} {...props} />

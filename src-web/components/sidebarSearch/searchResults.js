@@ -29,7 +29,7 @@ class SearchResults extends Component {
     let SearchResultsClasses = {};
     SearchResultsClasses.maxWidth = this.props.maxWidth?this.props.maxWidth:'';
     return (
-      <div className={`flex-grow overflow-scroll ${SearchResultsClasses.maxWidth} mt-2`}>
+      <div className={`flex-grow container overflow-scroll ${SearchResultsClasses.maxWidth} mt-2`}>
         {this.allData.slice(0,30).map((i, j) => (
           <SearchCard
             key={j}

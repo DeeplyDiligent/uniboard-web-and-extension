@@ -17,7 +17,7 @@ class DesktopMainInterface extends Component {
           <SearchResults
             data={this.props.data}
             searchString={this.state.searchString}
-            maxWidth={"max-w-md mx-auto"}
+            maxWidth={"max-w-sm mx-auto"}
           />
         ) : (
           <UnitBoards data={this.props.data} />
