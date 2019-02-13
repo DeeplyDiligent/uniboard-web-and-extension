@@ -45,8 +45,10 @@ class TodoBody extends React.Component {
   
             <a className='w-3/5 todotext ml-3' style={todoStyle}>{this.props.item.value}</a>
             <div className=' w-1/5 text-right'> 
-            <DropDown/>
             <i className={todoIcon} aria-hidden="true" onClick={this.onClickDone}></i>
+            </div>
+            <div className=' w-1/5 text-right'> 
+            <DropDown/>
             </div>
             {/* <button type="button" className="close" onClick={this.onClickClose}></button> */}
           </div>
