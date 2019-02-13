@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import DropDown from "./dropDown";
 
-class TodoList extends React.Component {
+class TodoBody extends React.Component {
     render () {
       var items = this.props.items.map((item, index) => {
         return (
@@ -44,6 +45,7 @@ class TodoList extends React.Component {
   
             <a className='w-3/5 todotext ml-3' style={todoStyle}>{this.props.item.value}</a>
             <div className=' w-1/5 text-right'> 
+            <DropDown/>
             <i className={todoIcon} aria-hidden="true" onClick={this.onClickDone}></i>
             </div>
             {/* <button type="button" className="close" onClick={this.onClickClose}></button> */}
@@ -55,4 +57,4 @@ class TodoList extends React.Component {
     }
   }
 
-export default TodoList
+export default TodoBody
