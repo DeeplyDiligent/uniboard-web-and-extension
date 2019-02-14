@@ -1,4 +1,4 @@
-BUILD_TYPE='extension'
+BUILD_TYPE='web'
 echo "Building $BUILD_TYPE"
 rm -r ./public
 rm -r ./src
