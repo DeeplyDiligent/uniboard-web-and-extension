@@ -122,7 +122,7 @@ function showSubjectSelector(subjectsSelected) {
             allSubjectList: allSubjects
         }, function () {});
     $("#loader").hide();
-    $('<div id="subjects-div"></div>').appendTo('#synopsis');
+    $('<div id="subjects-div" style="padding:0px 32px"></div>').appendTo('#synopsis');
     $('#subjects-div').append("<div id='success-synopsis' style='text-align:center; display:none'>&#10004; Data Stored. <a href='#'>Click Here</a> to close this popup!</div><br/>");
     $('#subjects-div').append("<div style='text-align:center'>What subjects are you doing this semester?</div><" +
             "br />");
@@ -197,16 +197,17 @@ function renderPage(){
     }
 
     $("#page").append('<iframe id="pageaction"  style="width:100%; border:none" height="100%" src="'+ chrome.extension.getURL('index.html')+'"></iframe>')
-    synopsisbox = "<div id='synopsis'class='card mb-3' style='padding:20px 20px;display:none;background: radial-gradient(circle, rgba(241,240,255,1) 0%, rgba(228,251,244,1) 100%);box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.75);'>"+
-    "<div id='logo' style='display: -webkit-box;width: fit-content;margin: auto; margin-bottom: 20px;'><a href='"+chrome.extension.getURL('index.html')+"'><img style='width:40px' "+
-    "src='"+chrome.extension.getURL('img/icon.png')+"' /></a><h1 style='margin-left:25px;text-shadow:0px 0px 9px #ffbd81'><a style='color:#f98012;' href='"
-    +chrome.extension.getURL('index.html')+"'>Synopsis</a></h1></div>"
-    +"<div id='app'><div id='loader'><div style='text-align:center'>Please Wait...</div>"
-        +"<img style='height:100px; margin:auto; display:block' src=" + chrome.extension.getURL('img/spinner.gif') + 
-            " /><div id='progress-value' style='text-align:center'>Loading...</div>" +
+    synopsisbox = "<div id='synopsis' class='card' style='display:none;'>"+
+                    "<div style='background: linear-gradient(0deg, rgba(90,25,255,1) 0%, rgba(117,109,255,1) 100%)'><div id='logo' style='display: -webkit-box;width: fit-content; margin: 40px auto;'><img style='width:50px; box-shadow: 0px 0px 7px 0px; border-radius: 30px;' "+
+                    "src='"+chrome.extension.getURL('uniboard.svg')+"' /><h1 style='margin-left:25px; color:white'>Synopsis</h1></div></div>"
+                    +"<div id='app'><div id='loader'><div style='text-align:center'>Please Wait...</div>"
+                        +"<img style='height:100px; margin:auto; display:block; box-shadow: 0px 0px 7px 0px; border-radius: 33px;' src=" + chrome.extension.getURL('img/spinner.gif') + 
+                            " /><div id='progress-value' style='text-align:center'>Loading...</div>" +
             "</div></div></div>"
     
     $(synopsisbox).appendTo("#subjectselector");
+    $('.tingle-modal-box__content').css({padding:"0px"})
+    $('#synopsis').css({border:"0px"})
     $('#synopsis').slideDown();
 }
 

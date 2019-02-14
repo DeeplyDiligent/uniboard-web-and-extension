@@ -7,6 +7,7 @@
     "default_title": "Synopsis",
     "default_icon": "appleuniboard.png"
   },
+  "icons": { "16": "appleuniboard.png", "48": "appleuniboard.png", "128": "appleuniboard.png" },
   "background": {
     "scripts": [
       "js/jquery/jquery.min.js",
@@ -24,7 +25,7 @@
     "tabs",
     "downloads"
   ],
-  "web_accessible_resources": ["index.html", "img/spinner.gif", "img/icon.png"],
+  "web_accessible_resources": ["index.html", "img/spinner.gif", "uniboard.svg", "appleuniboard.png"],
   "content_scripts": [
     {
       "matches": [
