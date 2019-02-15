@@ -25,7 +25,7 @@
     "tabs",
     "downloads"
   ],
-  "web_accessible_resources": ["index.html", "img/spinner.gif", "uniboard.svg", "appleuniboard.png"],
+  "web_accessible_resources": ["index.html", "img/*"],
   "content_scripts": [
     {
       "matches": [
