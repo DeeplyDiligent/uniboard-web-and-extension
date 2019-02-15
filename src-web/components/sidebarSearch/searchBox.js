@@ -10,7 +10,7 @@ class SearchBox extends Component {
         <i className="fas fa-search mr-4" />
         <input
           type="text"
-          className="bg-transparent"
+          className="bg-transparent w-full"
           value={this.state.searchString}
           onChange={this.props.handleChange}
           placeholder="Search..."

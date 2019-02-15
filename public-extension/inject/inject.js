@@ -34,9 +34,9 @@ function expandAndCheck(subjects) {
     function progressBar() {
         var progressBarAndCancel = $('#progress-value');
         progressBarAndCancel.html("");
-        $('#progress-value').append('<div style="text-align:center" id="progress-bar"></div>')
+        $('#progress-value').append('<div class="text-center m-2" id="progress-bar"></div>')
         var progressBar = $('#progress-bar');
-        progressBarAndCancel.append("<br/><button type='button' id='cancel-loading' style='display:block; margin:auto'>Cancel/Change Subjects</button>")
+        progressBarAndCancel.append("<br/><button type='button' id='cancel-loading' class='m-auto rounded-sm tracking-wide text-white py-3 px-4' style='background-color: #7C4BFF;'>Cancel/Change Subjects</button>")
         $('#cancel-loading').click(function(){
             // clearTimeout(loadSubjects);
             cancelled = true;
@@ -122,16 +122,18 @@ function showSubjectSelector(subjectsSelected) {
             allSubjectList: allSubjects
         }, function () {});
     $("#loader").hide();
-    $('<div id="subjects-div" style="padding:0px 32px"></div>').appendTo('#synopsis');
-    $('#subjects-div').append("<div id='success-synopsis' style='text-align:center; display:none'>&#10004; Data Stored. <a href='#'>Click Here</a> to close this popup!</div><br/>");
-    $('#subjects-div').append("<div style='text-align:center'>What subjects are you doing this semester?</div><" +
-            "br />");
+    $('<div id="subjects-div" class="bg-grey-lightest p-6"></div>').appendTo('#synopsis');
+    $('#subjects-div').append("<div id='success-synopsis' style='text-align:center; display:none'>&#10004; Data Stored. <a href='#'>Click Here</a> to close this popup!</div>");
+    $('#subjects-div').append("<div class='text-center text-2xl font-normal text-grey-darker mb-3'>What subjects are you doing this semester?</div>");
     //VALUE IS DIFFERENT FROM THE THING SHOWN!
     $('#subjects-div').append("<div style='display:table;margin:0 auto;width:100%'><select class='js-example-basic-multip" +
             "le js-states form-control js-programmatic-multi-set-val' id='subjects_select' mu" +
             "ltiple='multiple' name='subjects'></select></div>");
-    $('#subjects-div').append("<br/><button type='button' id='saveSelection'style='display:block; margin:auto'>" +
-            "Save</button> <br/><br/>");
+    $('#subjects-div').append(
+        "<div class='text-right'>"+
+            "<button class='mt-3 rounded-sm font-semibold tracking-wide text-white py-3 px-4' style='background-color: #7C4BFF;' id='saveSelection'>Next</button>"+
+        "</div>"
+    );
     $(".js-example-basic-multiple.js-states.form-control").select2({data: allSubjects, width:'100%'});
     $('.js-example-basic-multiple.js-states.form-control').select2();
     $('.js-example-basic-multiple.js-states.form-control')
@@ -175,8 +177,9 @@ function renderPage(){
     $('#page-footer').css({display:"none"}); 
     //floating change subjects button
     $('#page-wrapper').append('<div id="floatingdivs" style="display:flex;position: fixed;transform: translateX(50%); height: 60px; z-index:10000;top: 5px; right: 50%;"></div>')
-    $('#floatingdivs').append('<a href="#" id="changesubjects" style="width: 150px; height:60px; background-color: #0C9; color: #FFF; border-radius: 50px; text-align: center; box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Change Subjects</div></a>')
-    $('#floatingdivs').append('<a href="#" id="refresh" style="margin-left:15px;width: 110px; height:60px; background-color: #0C9; color: #FFF; border-radius: 50px; text-align: center; box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Refresh</div></a>')
+    $('#floatingdivs').append('<div style="width: 54px;height:60px;background-color: #8d61ff;color: #FFF;border-radius: 20px 0px 0px 20px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"> <img src="'+chrome.extension.getURL('img/uniboard-white-icon.svg')+'" style="width: 34px;margin-top: 12px;"></div>')
+    $('#floatingdivs').append('<a href="#" id="changesubjects" style="width: 134px;height:60px;background-color: #7C4BFF;color: #FFF;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Change Subjects</div></a>')
+    $('#floatingdivs').append('<a href="#" id="refresh" style="width: 80px;height:60px;background-color: #7C4BFF;color: #FFF;border-radius: 0px 20px 20px 0px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Refresh</div></a>')
     $('#page').css({width:$('body').width()});
     setInterval(function(){ $('#page').css({width:$('body').width(),height:$('body').height()-72}); }, 200);
     $('#changesubjects').click(function(){
@@ -188,22 +191,33 @@ function renderPage(){
             saveSelection();
         }
     });
-    // add a button if modal doesnt have button already
-    if ($('.tingle-btn--primary').length === 0){
-        modal.addFooterBtn('Minimize', 'tingle-btn tingle-btn--primary', function() {
-            // here goes some logic
-            modal.close();
-        });
-    }
+    
+    modal.setFooterContent("")
+    modal.addFooterBtn('Minimize', 'tingle-btn tingle-btn--primary', function() {
+        modal.close();
+    });
 
     $("#page").append('<iframe id="pageaction"  style="width:100%; border:none" height="100%" src="'+ chrome.extension.getURL('index.html')+'"></iframe>')
-    synopsisbox = "<div id='synopsis' class='card' style='display:none;'>"+
-                    "<div style='background: linear-gradient(0deg, rgba(90,25,255,1) 0%, rgba(117,109,255,1) 100%)'><div id='logo' style='display: -webkit-box;width: fit-content; margin: 40px auto;'><img style='width:50px; box-shadow: 0px 0px 7px 0px; border-radius: 30px;' "+
-                    "src='"+chrome.extension.getURL('uniboard.svg')+"' /><h1 style='margin-left:25px; color:white'>Synopsis</h1></div></div>"
-                    +"<div id='app'><div id='loader'><div style='text-align:center'>Please Wait...</div>"
-                        +"<img style='height:100px; margin:auto; display:block; box-shadow: 0px 0px 7px 0px; border-radius: 33px;' src=" + chrome.extension.getURL('img/spinner.gif') + 
-                            " /><div id='progress-value' style='text-align:center'>Loading...</div>" +
-            "</div></div></div>"
+    $('head').append('<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">');
+    $('head').append('<style>.tingle-btn{background-color:#7C4BFF;}</style>');
+    synopsisbox = 
+    "<div id='synopsis' class='card' style='display:none;'>"+
+        "<div class='bg-white shadow text-center'>"+
+            "<div class='p-8' style='background-color: #7C4BFF;'>"+
+                "<h1 class='font-semibold text-xl text-white'>Let's Get Started!</h1> "+         
+                "<div class='mt-2 w-2/5 mx-auto'>"+
+                    "<img src='"+chrome.extension.getURL('img/uniboard-white.svg')+"' />"+
+                "</div>"+
+            "</div>"+
+        "</div>"+
+        "<div id='app'>"+
+            "<div class='bg-grey-lightest py-16 px-8 text-center' id='loader'>"+
+                "<img style='width:250px' src='"+chrome.extension.getURL('img/spin.svg')+"' />"+
+                "<div class='my-3'>Please Wait...</div>"+
+                "<div id='progress-value' style='text-align:center'>Loading...</div>"+
+            "</div>"+
+        "</div>"+
+    "</div>"
     
     $(synopsisbox).appendTo("#subjectselector");
     $('.tingle-modal-box__content').css({padding:"0px"})
