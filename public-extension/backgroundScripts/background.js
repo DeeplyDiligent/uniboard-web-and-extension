@@ -18,11 +18,6 @@ firebase.initializeApp({
 // Initialize Cloud Firestore through Firebase
 var db = firebase.firestore();
 
-// Disable deprecated features
-db.settings({
-  timestampsInSnapshots: true
-});
-
 //show justUpdated modal if app has been updated
 chrome.runtime.onInstalled.addListener(function(details) {
   if (details.reason == "update") {

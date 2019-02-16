@@ -1,15 +1,16 @@
+#!/usr/bin/env bash
 BUILD_TYPE='extension'
 echo "Building $BUILD_TYPE"
-rm -r ./public
-rm -r ./src
+rm -r public
+rm -r src
 if [ "$BUILD_TYPE" == "extension" ]
 then
-mkdir -p ./src
-cp -rf ./src-web/* ./src
-cp -rf ./src-extension/* ./src
-cp -rf ./public-extension ./public
+mkdir -p src
+cp -rf src-web/* src
+cp -rf src-extension/* src
+cp -rf public-extension public
 else
-cp -rf ./src-web ./src
-cp -rf ./public-web ./public
+cp -rf src-web src
+cp -rf public-web public
 fi
 react-scripts build
