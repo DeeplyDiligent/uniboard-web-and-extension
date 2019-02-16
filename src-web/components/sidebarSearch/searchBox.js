@@ -1,6 +1,25 @@
 import React, { Component } from "react";
 class SearchBox extends Component {
-  state = {};
+  state = {crossButton:<div/>};
+  componentDidMount(){
+  }
+  deleteText = () => {
+    this.setState({searchString:''})
+    let e = {};
+    e.target = {};
+    e.target.value = ''
+    this.showDeleteButton(e);
+
+  }
+  showDeleteButton = (e) => {
+    if(e.target.value){
+      this.setState({crossButton:<i className="fas fa-times text-xl" onClick = {this.deleteText} />});
+    } else {
+      this.setState({crossButton:<div/>});
+    }
+    this.setState({searchString: e.target.value});
+    this.props.handleChange(e)
+  }
   render() {
     return (
       <div
@@ -12,9 +31,11 @@ class SearchBox extends Component {
           type="text"
           className="bg-transparent w-full"
           value={this.state.searchString}
-          onChange={this.props.handleChange}
+          onChange={this.showDeleteButton}
           placeholder="Search..."
+          ref={(input)=> this.myinput = input}
         />
+        {this.state.crossButton}
       </div>
     );
   }

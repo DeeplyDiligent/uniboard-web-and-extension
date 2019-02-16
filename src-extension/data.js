@@ -131,11 +131,12 @@ class Database {
   transformToFlatDict(data) {
     let dataArray = [];
     transform(data, (_, value, key) => {
-      let subject = key;
+      let subject = this.shortenName(key);
       transform(value, (_, value, key) => {
-        let allAttachments = this.getAllAttachments(value)
+        let allAttachments = this.getAllAttachments(value);
         allAttachments.map((value, key) => {
-          value["subject"] = subject;
+          value["subject"] = (subject);
+          value['searchString'] = `${subject} ${value.name}`
           dataArray.push(value);
         });
       });

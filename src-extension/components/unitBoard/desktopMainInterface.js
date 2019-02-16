@@ -7,7 +7,7 @@ import PopOut from "../nav/popOut";
 import database from "../../data";
 import LastUpdated from "./lastUpdated";
 const FirebaseSyncOn = () => (
-  <a target="_blank" href="https://uniboard.app/">
+  <a target="_blank" href="https://uniboard.app/login">
     <button
       title="Go To Mobile App"
       className="bg-transparent hover:bg-green text-green-dark font-semibold hover:text-white py-2 px-4 border border-green hover:border-transparent rounded text-xl ml-6 h-full"
