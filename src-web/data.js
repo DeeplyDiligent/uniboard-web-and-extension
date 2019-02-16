@@ -17,10 +17,6 @@ class Database {
 
     this.db = firebase.firestore();
 
-    // Disable deprecated features
-    this.db.settings({
-      timestampsInSnapshots: true
-    });
     //firebase.auth().onAuthStateChanged(this.changeAuthState);
   }
 

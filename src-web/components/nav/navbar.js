@@ -25,10 +25,16 @@ class Navbar extends Component {
         let logXButton = (<Link to="/login" className="block mt-4 lg:inline-block lg:mt-0 text-purple hover:text-purple-light mr-6">
             Login
         </Link>);
+        let searchButton = (<div></div>);
         if(this.props.loggedIn){
             logXButton = (<a href='javascript:void(0);' onClick = {this.logout} className="block mt-4 lg:inline-block lg:mt-0 text-purple hover:text-purple-light mr-6">
                 Logout
             </a>);
+            searchButton = (<button className="flex items-center px-3 py-2 ml-2 border rounded text-purple border-purple hover:text-purple-lighter hover:border-purple-lighter">
+            <Link to='/home/search' className="text-purple">
+                <i className="fas fa-search fill-current"></i>
+            </Link>
+        </button>)
         }
         return (
             <nav className="flex items-center justify-between flex-wrap bg-white p-4 shadow-md bg-black sticky w-full flex-no-shrink" style={{zIndex:"500", top:"0px"}} >
@@ -36,12 +42,7 @@ class Navbar extends Component {
                     <img className="w-48 ml-1"  src={process.env.PUBLIC_URL + "/uniboard-2.svg"} />                    
                 </Link>                
                 <div className="flex lg:hidden">
-                    <button className="flex items-center px-3 py-2 ml-2 border rounded text-purple border-purple hover:text-purple-lighter hover:border-purple-lighter">
-                        <Link to='/home/search' className="text-purple">
-                            <i className="fas fa-search fill-current"></i>
-                        </Link>
-                    </button>
-                    
+                    {searchButton}                    
                     <button onClick = {this.expandNavbar} className="flex items-center px-3 py-2 ml-2 border rounded text-purple border-purple hover:text-purple-lighter hover:border-purple-lighter">
                     <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
                     </button>
