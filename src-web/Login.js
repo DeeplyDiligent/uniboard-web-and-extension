@@ -18,10 +18,6 @@ class Login extends Component {
     super(props);
     this.state.loggedIn = "not-checked";
     database.setAuthStateChangedCallback(this.changeAuthState);
-
-    window.onGoogleYoloLoad = (googleyolo) => {
-      console.log(googleyolo);
-    };
   }
 
   changeAuthState = user => {
