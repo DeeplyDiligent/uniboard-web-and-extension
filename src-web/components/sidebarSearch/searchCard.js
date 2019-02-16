@@ -1,8 +1,19 @@
 import * as React from "react";
 import database from "../../data";
+import fuzzysort from "fuzzysort";
 
 class SearchCard extends React.Component {
   state = {};
+  highlight(string) {
+    let highlightedString = fuzzysort.highlight(
+      fuzzysort.single(this.props.searchString, string),
+      "<mark>",
+      "</mark>"
+    );
+    return {
+      __html: highlightedString ? highlightedString : string
+    };
+  }
   render() {
     return (
       <a
@@ -20,8 +31,15 @@ class SearchCard extends React.Component {
           src={this.props.img}
         />
         <div>
-          <div>{database.shortenName(this.props.subject)} </div>
-          <div className="text-lg">{this.props.text} </div>
+          <div
+            dangerouslySetInnerHTML={this.highlight(
+              database.shortenName(this.props.subject)
+            )}
+          />
+          <div
+            className="text-lg"
+            dangerouslySetInnerHTML={this.highlight(this.props.text)}
+          />
         </div>
       </a>
     );

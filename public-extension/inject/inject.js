@@ -56,6 +56,7 @@ function expandAndCheck(subjects) {
     } else {
         $('#subjects-div').hide();
         $('#loader').show();
+        $('#logo-spin').addClass('fa-spin')
         navigation.hide();
         $('<div id="takeOverNav">Please Wait...</div>').insertAfter(navigation)
         progressBar();
@@ -70,6 +71,7 @@ function expandAndCheck(subjects) {
         $('#subjects-div').show();
         $('#loader').hide();
         $('#success-synopsis').show();
+        $('#logo-spin').removeClass('fa-spin')
         $('#success-synopsis a').click(function(){
             modal.close();
         })
@@ -177,7 +179,7 @@ function renderPage(){
     $('#page-footer').css({display:"none"}); 
     //floating change subjects button
     $('#page-wrapper').append('<div id="floatingdivs" style="display:flex;position: fixed;transform: translateX(50%); height: 60px; z-index:10000;top: 5px; right: 50%;"></div>')
-    $('#floatingdivs').append('<div style="width: 54px;height:60px;background-color: #8d61ff;color: #FFF;border-radius: 20px 0px 0px 20px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"> <img src="'+chrome.extension.getURL('img/uniboard-white-icon.svg')+'" style="width: 34px;margin-top: 12px;"></div>')
+    $('#floatingdivs').append('<div style="width: 54px;height:60px;background-color: #8d61ff;color: #FFF;border-radius: 20px 0px 0px 20px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"> <img id="logo-spin" src="'+chrome.extension.getURL('img/uniboard-white-icon.svg')+'" style="width: 34px;margin-top: 12px;"></div>')
     $('#floatingdivs').append('<a href="#" id="changesubjects" style="width: 134px;height:60px;background-color: #7C4BFF;color: #FFF;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Change Subjects</div></a>')
     $('#floatingdivs').append('<a href="#" id="refresh" style="width: 80px;height:60px;background-color: #7C4BFF;color: #FFF;border-radius: 0px 20px 20px 0px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Refresh</div></a>')
     $('#page').css({width:$('body').width()});
@@ -204,7 +206,7 @@ function renderPage(){
     "<div id='synopsis' class='card' style='display:none;'>"+
         "<div class='bg-white shadow text-center'>"+
             "<div class='p-8' style='background-color: #7C4BFF;'>"+
-                "<h1 class='font-semibold text-xl text-white'>Let's Get Started!</h1> "+         
+                "<h1 class='font-semibold text-xl text-white'>Let's Get Studying!</h1> "+         
                 "<div class='mt-2 w-2/5 mx-auto'>"+
                     "<img src='"+chrome.extension.getURL('img/uniboard-white.svg')+"' />"+
                 "</div>"+

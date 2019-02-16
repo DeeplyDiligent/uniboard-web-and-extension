@@ -21,7 +21,6 @@ class LastUpdated extends Component {
 
   render() {
     if (this.state.lastUpdated) {
-      console.log(this.state.lastUpdated);
       return (
         <div className="text-lg py-1 ml-6">
           <div>Last Updated</div>
