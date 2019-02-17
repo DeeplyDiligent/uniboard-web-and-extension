@@ -136,7 +136,7 @@ class Database {
         let allAttachments = this.getAllAttachments(value);
         allAttachments.map((value, key) => {
           value["subject"] = (subject);
-          value['searchString'] = `${subject} ${value.name}`
+          value['searchString'] = `${subject} ${value.name} ${subject}`
           dataArray.push(value);
         });
       });
