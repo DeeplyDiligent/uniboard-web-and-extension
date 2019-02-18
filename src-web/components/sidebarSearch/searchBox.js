@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 class SearchBox extends Component {
-  state = {crossButton:<div/>};
+  state = {crossButton:<div/>, searchString: ''};
   componentDidMount(){
   }
   deleteText = () => {
@@ -33,7 +33,6 @@ class SearchBox extends Component {
           value={this.state.searchString}
           onChange={this.showDeleteButton}
           placeholder="Search..."
-          ref={(input)=> this.myinput = input}
         />
         {this.state.crossButton}
       </div>
