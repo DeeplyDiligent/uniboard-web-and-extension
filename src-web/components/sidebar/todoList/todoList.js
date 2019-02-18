@@ -4,10 +4,7 @@ import TodoForm from './todoForm'
 import TodoBody from './todoBody'
 
 var todoItems = [];
-todoItems.push({index: 1, value: "learn react", done: false, priority: "high"});
-todoItems.push({index: 2, value: "Go shopping", done: false, priority: "medium"});
-todoItems.push({index: 3, value: "buy flowers", done: false, priority: "low"});
-todoItems.push({index: 4, value: "buy noodles", done: false, priority: "high"});
+todoItems.push({index: 1, value: "study", done: false, priority: "high"});
 
 
   

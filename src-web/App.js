@@ -34,10 +34,10 @@ class App extends Component {
               path="/home/sidebar/:id/:branchid"
               render={props => <Sidebar data={this.state.data} {...props} />}
             />
-            <Route
+            {/* <Route
               path="/home/sidebar/todolist"
               render={props => <SidebarTodo />}
-            />
+            /> */}
             <Route
               path="/home/search"
               render={props => (
