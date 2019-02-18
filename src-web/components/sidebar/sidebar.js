@@ -20,7 +20,7 @@ class Sidebar extends Component {
         
         // console.log(this.db.collection('dba').doc('eGlJZRO3B
         let weekData = this.props.data[this.props.match.params.id][this.props.match.params.branchid];
-        //console.log(weekData)
+        console.log(weekData.link)
         const styles = {};
         styles.sidebar = {right:0, zIndex:'1000', overflow:'scroll'}
         styles.sidebarBackground = {rgba:'(0,0,0,0)'}
@@ -38,14 +38,18 @@ class Sidebar extends Component {
                         <div className="text-2xl font-bold">{this.props.match.params.id}</div>
                         {/* <div className="text">{this.props.match.params.id}</div> */}
                         <div className="bg-red-light brow my-4"></div>
-                        <div className = "text-md text-grey-darker">{weekData.name}</div>
-                        {(weekData.files && weekData.files.length) ? <Attachments attachments={weekData.files} heading={"FILES"}/>: false}
-                        {(weekData.assignments && weekData.assignments.length) ? <Attachments attachments={weekData.assignments} heading={"ASSIGNMENTS"}/>: false}
-                        {(weekData.quizzes && weekData.quizzes.length) ? <Attachments attachments={weekData.quizzes} heading={"QUIZZES"}/>: false}
-                        {(weekData.folders && weekData.folders.length) ? <Attachments attachments={weekData.folders} heading={"FOLDERS"}/>: false}
-                        {(weekData.links && weekData.links.length) ? <Attachments attachments={weekData.links} heading={"LINKS"}/>: false}
-                        {(weekData.forums && weekData.forums.length) ? <Attachments attachments={weekData.forums} heading={"FORUMS"}/>: false}
-                        <hr/>
+                        <a href={weekData.link} className = "text-md text-grey-darker flex no-underline">
+                            <div className="flex-grow">{weekData.name}</div>
+                            <div><i className="fas fa-external-link-alt"></i></div>
+                        </a>
+                        <div className="mt-4">
+                            {(weekData.files && weekData.files.length) ? <Attachments attachments={weekData.files} heading={"FILES"}/>: false}
+                            {(weekData.assignments && weekData.assignments.length) ? <Attachments attachments={weekData.assignments} heading={"ASSIGNMENTS"}/>: false}
+                            {(weekData.quizzes && weekData.quizzes.length) ? <Attachments attachments={weekData.quizzes} heading={"QUIZZES"}/>: false}
+                            {(weekData.folders && weekData.folders.length) ? <Attachments attachments={weekData.folders} heading={"FOLDERS"}/>: false}
+                            {(weekData.links && weekData.links.length) ? <Attachments attachments={weekData.links} heading={"LINKS"}/>: false}
+                            {(weekData.forums && weekData.forums.length) ? <Attachments attachments={weekData.forums} heading={"FORUMS"}/>: false}
+                        </div>
                         {/* <TodoApp/> */}
                     </Box>
                 </div>
@@ -53,10 +57,7 @@ class Sidebar extends Component {
             );
         }
         else {
-            return(
-                <div>
-                </div>
-            )
+            return false;
         }
     }
 }
