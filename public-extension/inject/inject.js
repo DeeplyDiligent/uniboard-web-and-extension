@@ -169,7 +169,7 @@ function saveSelection(){
 
 function showHideIframe(){
     if ($('#pageaction').is(':visible')){
-        $('#toggleminimize').html('Maximize')
+        $('#toggleminimize').html('<div style="margin-top:17px">Maximize</div>')
         $('#pageaction').slideUp(function(){
             $('#page').css({position:'relative'})
             $('#page > *').fadeIn(function(){
@@ -178,7 +178,7 @@ function showHideIframe(){
             });
         })
     } else {
-        $('#toggleminimize').html('Minimize')
+        $('#toggleminimize').html('<div style="margin-top:17px">Minimize</div>')
         $('#page > *').hide();
         $('#page').removeClass('container-fluid');
         $('#pageaction').slideDown(function(){
@@ -203,7 +203,7 @@ function renderPage(){
     $('#floatingdivs').append('<a href="#" id="refresh" style="width: 74px;height:60px;background-color: #7C4BFF;color: #FFF;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Refresh</div></a>')
     $('#floatingdivs').append('<a href="#" id="toggleminimize" style="width: 90px;height:60px;background-color: #7C4BFF;color: #FFF;border-radius: 0px 20px 20px 0px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Minimize</div></a>')
     $('#page').css({width:$('body').width()});
-    setInterval(function(){ $('#page').css({width:$('body').width(),height:$('body').height()-72}); }, 200);
+    setInterval(function(){ $('#page').css({width:$('body').width(),height:$('body').height()-72}); }, 0);
     $('#changesubjects').click(function(){
         modal.open()
     });
