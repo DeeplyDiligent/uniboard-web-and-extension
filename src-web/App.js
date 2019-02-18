@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GetTheExtension from "./components/getTheExtension";
 import database from "./data";
 import About from "./components/about";
+import SidebarTodo from "./components/sidebar/sidebarTodo";
 
 class App extends Component {
   state = { loading: true, notFound: false };
@@ -33,10 +34,10 @@ class App extends Component {
               path="/home/sidebar/:id/:branchid"
               render={props => <Sidebar data={this.state.data} {...props} />}
             />
-            <Route
+            {/* <Route
               path="/home/sidebar/todolist"
-              render={props => <Sidebar />}
-            />
+              render={props => <SidebarTodo />}
+            /> */}
             <Route
               path="/home/search"
               render={props => (
