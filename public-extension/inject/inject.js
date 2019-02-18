@@ -287,7 +287,7 @@ function refreshPageIfNotLoggedIn(){
         context: document.body
     }).done(function(data) {
         if(data.includes("postLoginSubmitButton")){
-            parent.location.href=parent.location.href
+            parent.location.reload();
         }
     });
 }
