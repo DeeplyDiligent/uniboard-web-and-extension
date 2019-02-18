@@ -167,21 +167,41 @@ function saveSelection(){
         });
 }
 
+function showHideIframe(){
+    if ($('#pageaction').is(':visible')){
+        $('#toggleminimize').html('Maximize')
+        $('#pageaction').slideUp(function(){
+            $('#page').css({position:'relative'})
+            $('#page > *').fadeIn(function(){
+                $('#pageaction').hide();
+                $('#page').addClass('container-fluid');
+            });
+        })
+    } else {
+        $('#toggleminimize').html('Minimize')
+        $('#page > *').hide();
+        $('#page').removeClass('container-fluid');
+        $('#pageaction').slideDown(function(){
+            $('#page').css({position:'fixed'})
+        })
+    }
+}
+
 function renderPage(){
      
     // set content
     modal.setContent('<div id="subjectselector"></div>');    
     // modal.close();
     $('#page > *').hide();
-    $('#page').css({padding:"0px", position: "fixed", height: "100%"});
-    $('#page-wrapper').css({paddingBottom:"0px",marginBotton:"0px"});
-    $('#page-wrapper::after').css({content:"none"});
+    $('#page').css({position:'fixed'})
+    $('#page').removeClass('container-fluid');
     $('#page-footer').css({display:"none"}); 
     //floating change subjects button
     $('#page-wrapper').append('<div id="floatingdivs" style="display:flex;position: fixed;transform: translateX(50%); height: 60px; z-index:10000;top: 5px; right: 50%;"></div>')
     $('#floatingdivs').append('<div style="width: 54px;height:60px;background-color: #8d61ff;color: #FFF;border-radius: 20px 0px 0px 20px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"> <img id="logo-spin" src="'+chrome.extension.getURL('img/uniboard-white-icon.svg')+'" style="width: 34px;margin-top: 12px;"></div>')
     $('#floatingdivs').append('<a href="#" id="changesubjects" style="width: 134px;height:60px;background-color: #7C4BFF;color: #FFF;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Change Subjects</div></a>')
-    $('#floatingdivs').append('<a href="#" id="refresh" style="width: 80px;height:60px;background-color: #7C4BFF;color: #FFF;border-radius: 0px 20px 20px 0px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Refresh</div></a>')
+    $('#floatingdivs').append('<a href="#" id="refresh" style="width: 74px;height:60px;background-color: #7C4BFF;color: #FFF;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Refresh</div></a>')
+    $('#floatingdivs').append('<a href="#" id="toggleminimize" style="width: 90px;height:60px;background-color: #7C4BFF;color: #FFF;border-radius: 0px 20px 20px 0px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Minimize</div></a>')
     $('#page').css({width:$('body').width()});
     setInterval(function(){ $('#page').css({width:$('body').width(),height:$('body').height()-72}); }, 200);
     $('#changesubjects').click(function(){
@@ -193,6 +213,7 @@ function renderPage(){
             saveSelection();
         }
     });
+    $('#toggleminimize').click(showHideIframe);
     
     modal.setFooterContent("")
     modal.addFooterBtn('Minimize', 'tingle-btn tingle-btn--primary', function() {
