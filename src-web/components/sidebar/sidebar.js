@@ -38,7 +38,7 @@ class Sidebar extends Component {
                         <div className="text-2xl font-bold">{this.props.match.params.id}</div>
                         {/* <div className="text">{this.props.match.params.id}</div> */}
                         <div className="bg-red-light brow my-4"></div>
-                        <a href={weekData.link} className = "text-md text-grey-darker flex no-underline">
+                        <a href={weekData.link} target="_blank" className = "text-md text-grey-darker flex no-underline">
                             <div className="flex-grow">{weekData.name}</div>
                             <div><i className="fas fa-external-link-alt"></i></div>
                         </a>
