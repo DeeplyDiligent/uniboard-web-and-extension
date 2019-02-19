@@ -19,6 +19,7 @@ class FirebaseSyncOff extends Component {
     });
   };
   modal1 = () => {
+    localStorage.setItem('mobileShown','true')
     this.modal = new tingle.modal({
       footer: true,
       stickyFooter: false,
@@ -39,6 +40,7 @@ class FirebaseSyncOff extends Component {
       this.modal2
     );
     this.modal.open();
+    this.forceUpdate()
   };
   modal2 = () => {
     let modal = this.modal;
@@ -73,6 +75,7 @@ class FirebaseSyncOff extends Component {
         className="bg-transparent hover:bg-blue text-blue-dark font-semibold hover:text-white py-2 px-4 border border-blue hover:border-transparent rounded text-xl ml-6"
       >
         <i className="fas fa-mobile-alt" />
+        {localStorage.getItem('mobileShown')==="true"?false:<i class="fas fa-circle absolute text-red" style={{marginTop: "-20px",marginLeft: "5px"}}></i>}
       </button>
     );
   }
