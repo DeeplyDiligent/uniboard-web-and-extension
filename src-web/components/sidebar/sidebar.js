@@ -43,12 +43,12 @@ class Sidebar extends Component {
                             <div><i className="fas fa-external-link-alt"></i></div>
                         </a>
                         <div className="mt-4">
-                            {(weekData.files && weekData.files.length) ? <Attachments attachments={weekData.files} heading={"FILES"}/>: false}
-                            {(weekData.assignments && weekData.assignments.length) ? <Attachments attachments={weekData.assignments} heading={"ASSIGNMENTS"}/>: false}
-                            {(weekData.quizzes && weekData.quizzes.length) ? <Attachments attachments={weekData.quizzes} heading={"QUIZZES"}/>: false}
-                            {(weekData.folders && weekData.folders.length) ? <Attachments attachments={weekData.folders} heading={"FOLDERS"}/>: false}
-                            {(weekData.links && weekData.links.length) ? <Attachments attachments={weekData.links} heading={"LINKS"}/>: false}
-                            {(weekData.forums && weekData.forums.length) ? <Attachments attachments={weekData.forums} heading={"FORUMS"}/>: false}
+                            {(weekData.files && weekData.files.length) ? <Attachments attachments={weekData.files} heading={"FILES"} icon={"fas fa-file"}/>: false}
+                            {(weekData.assignments && weekData.assignments.length) ? <Attachments attachments={weekData.assignments} heading={"ASSIGNMENTS"} icon={"fas fa-clipboard"}/>: false}
+                            {(weekData.quizzes && weekData.quizzes.length) ? <Attachments attachments={weekData.quizzes} heading={"QUIZZES"} icon={"fas fa-question-circle"}/>: false}
+                            {(weekData.folders && weekData.folders.length) ? <Attachments attachments={weekData.folders} heading={"FOLDERS"} icon={"fas fa-folder"}/>: false}
+                            {(weekData.links && weekData.links.length) ? <Attachments attachments={weekData.links} heading={"LINKS"} icon={"fas fa-link"}/>: false}
+                            {(weekData.forums && weekData.forums.length) ? <Attachments attachments={weekData.forums} heading={"FORUMS"} icon={"fas fa-comment"}/>: false}
                         </div>
                         {/* <TodoApp/> */}
                     </Box>
