@@ -3,6 +3,7 @@ import Attachments from './attachments/attachments';
 import TodoApp from './todoList/todoList'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import posed from 'react-pose';
+import NoAttachments from './attachments/noAttachments';
 
 const Box = posed.div({
         visible: { opacity: 1 },
@@ -24,6 +25,7 @@ class Sidebar extends Component {
         styles.sidebar = {right:0, zIndex:'1000', overflow:'scroll'}
         styles.sidebarBackground = {rgba:'(0,0,0,0)'}
         if(weekData){
+           let totalFiles = (weekData.files.length + weekData.assignments.length + weekData.quizzes.length + weekData.folders.length + weekData.links.length + weekData.forums.length)
             return (
                 <div className="w-full h-full absolute" >
                 <Link to='/home'> 
@@ -48,6 +50,8 @@ class Sidebar extends Component {
                             {(weekData.folders && weekData.folders.length) ? <Attachments attachments={weekData.folders} heading={"FOLDERS"} icon={"fas fa-folder"}/>: false}
                             {(weekData.links && weekData.links.length) ? <Attachments attachments={weekData.links} heading={"LINKS"} icon={"fas fa-link"}/>: false}
                             {(weekData.forums && weekData.forums.length) ? <Attachments attachments={weekData.forums} heading={"FORUMS"} icon={"fas fa-comment"}/>: false}
+                            
+                            {totalFiles ? false : <NoAttachments attachments={weekData}/>}
                         </div>
                         {/* <TodoApp/> */}
                     </Box>
