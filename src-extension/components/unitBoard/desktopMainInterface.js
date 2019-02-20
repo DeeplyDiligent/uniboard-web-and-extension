@@ -6,6 +6,7 @@ import FirebaseSyncOff from "../nav/firebaseSyncOff";
 import PopOut from "../nav/popOut";
 import database from "../../data";
 import LastUpdated from "./lastUpdated";
+import PoweredByUniboardLogo from "../nav/poweredByUniboardLogo";
 const FirebaseSyncOn = () => (
   <a target="_blank" href="https://uniboard.app/login">
     <button
@@ -38,6 +39,7 @@ class DesktopMainInterface extends Component {
     return (
       <div className="h-full flex flex-col bg-grey-lightest ">
         <div className="searchBox flex flex-no-shrink m-auto pt-4">
+          <PoweredByUniboardLogo />
           <SearchBox handleChange={this.handleChange} />
           {this.state.firebaseSyncOn ? <FirebaseSyncOn /> : <FirebaseSyncOff onChange={this.updateIconBasedOnSyncStatus} />}
           <PopOut />

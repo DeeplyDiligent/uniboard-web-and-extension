@@ -1,7 +1,5 @@
 import React from "react";
 const RenderLogo = props => {
-  let color = props.color;
-  console.log(props.color)
   return (
     <svg
       viewBox="0 0 512 512"
@@ -11,10 +9,10 @@ const RenderLogo = props => {
           <rect width="512" height="512" />
         </clipPath>
       </defs>
-      <g clip-path="url(#_clipPath_cXPZBH7VR7sYyHXHp7adH27NgrldGSbD)">
+      <g clipPath="url(#_clipPath_cXPZBH7VR7sYyHXHp7adH27NgrldGSbD)">
         <g>
           <circle
-            vector-effect="non-scaling-stroke"
+            vectorEffect="non-scaling-stroke"
             cx="256.0000000000007"
             cy="255.99999999999997"
             r="255.99999999999994"

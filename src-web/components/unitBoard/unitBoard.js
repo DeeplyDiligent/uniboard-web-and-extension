@@ -15,11 +15,12 @@ class UnitBoard extends Component {
   render() {
     const colorList = [
       "#3e49bb",
-      'mediumseagreen',
+      "mediumseagreen",
+      "#c5009e",
       "#009888",
       "#682cbf",
       "#50342c",
-      "#20B2AA",
+      "#20B2AA"
     ];
     var borderColor = colorList[this.props.number];
     return (

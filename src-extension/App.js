@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Home from "./components/home";
-import Navbar from "./components/nav/navbar";
 import Sidebar from "./components/sidebar/sidebar";
 // import firebase from 'firebase';
 import SidebarSearch from "./components/sidebarSearch/sidebarSearch";

@@ -21,6 +21,7 @@ class UnitBoard extends Component {
     const colorList = [
       "#3e49bb",
       "mediumseagreen",
+      "#c5009e",
       "#009888",
       "#682cbf",
       "#50342c",
@@ -38,15 +39,15 @@ class UnitBoard extends Component {
         className="flex flex-1 max-w-sm overflow-hidden shadow-lg m-2 bg-white border-b-8 flex-col"
       >
         <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink">
-          <div className="flex1">
+          <div className="flex">
             <div style={{ width: "33px" }}>
-              <RenderLogo color="#e3e3e3" />
+              <RenderLogo color={borderColor} />
             </div>
             <span className=" text-2xl font-semibold ml-4">
               {this.shortUnitName}
             </span>
           </div>
-          <div className="flex1 mt-1 cursor-pointer" onClick={this.showOptions}>
+          <div className="flex mt-1 cursor-pointer" onClick={this.showOptions}>
             <div className="absolute">
               <i className="text-xl text-grey-dark fas fa-ellipsis-v" />
               <OptionsMenu

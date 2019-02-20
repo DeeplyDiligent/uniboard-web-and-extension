@@ -39,9 +39,9 @@ class Sidebar extends Component {
                         <div className="text-2xl font-bold">{this.props.match.params.id}</div>
                         {/* <div className="text">{this.props.match.params.id}</div> */}
                         <div className="bg-red-light brow my-4"></div>
-                        <a href={weekData.link} target="_blank" className = "text-md text-grey-darker flex no-underline hover:text-grey-dark">
-                            <div className="flex-grow">{weekData.name}</div>
-                            <div>Open Moodle <i className="fas fa-external-link-alt"></i></div>
+                        <a href={weekData.link} target="_blank" className = "text-md text-grey-darker flex no-underline flex-col md:flex-row hover:text-grey-dark">
+                            <div className="flex-grow py-2">{weekData.name}</div>
+                            <div className="py-2">Open Moodle <i className="fas fa-external-link-alt"></i></div>
                         </a>
                         <div className="mt-4">
                             {(weekData.files && weekData.files.length) ? <Attachments attachments={weekData.files} heading={"FILES"} icon={"fas fa-file"}/>: false}

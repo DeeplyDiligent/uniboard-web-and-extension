@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import database from '../../../data';
+import RenderLogo from "../../../renderLogo";
 class MobileUnitBoardMinimized extends Component {
 
     onClickCard = () => {
@@ -8,7 +9,15 @@ class MobileUnitBoardMinimized extends Component {
 
     render() {
         console.log(this.props);
-        const colorList = ['#ebb2fc','#fae0a4','#a4cdfc','#90eea9', 'blue-light']
+        const colorList = [
+            "#3e49bb",
+            "mediumseagreen",
+            "#c5009e",
+            "#009888",
+            "#682cbf",
+            "#50342c",
+            "#20B2AA"
+          ];
         let borderColor = colorList[this.props.number]
         return (
         <div
@@ -22,13 +31,15 @@ class MobileUnitBoardMinimized extends Component {
             className="flex max-w-sm overflow-hidden shadow-lg m-2 bg-white border-b-8 flex-col"
         >
             <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink">
-            <div className="flex1">
-                <i className="text-2xl text-grey fab fa-flickr" />
+            <div className="flex">
+                <div style={{ width: "33px" }}>
+                    <RenderLogo color={borderColor} />
+                </div>
                 <span className=" text-3xl font-semibold ml-4">
                 {database.shortenName(this.props.unitName)}
                 </span>
             </div>
-            <div className="flex1 mt-2">
+            <div className="flex mt-2">
                 <i className="text-xl text-grey-dark fas fa-chevron-down" />
             </div>
             </div>

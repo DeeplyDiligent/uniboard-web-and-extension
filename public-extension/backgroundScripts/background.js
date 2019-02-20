@@ -20,10 +20,12 @@ var db = firebase.firestore();
 
 //show justUpdated modal if app has been updated
 chrome.runtime.onInstalled.addListener(function(details) {
-  if (details.reason == "update") {
-    var thisVersion = chrome.runtime.getManifest().version;
-    localStorage.setItem("updated", thisVersion);
-    console.log("newversion!" + thisVersion);
+  var thisVersion = chrome.runtime.getManifest().version;
+  if(details.reason == "install"){
+    localStorage.setItem('modalToOpen','welcome')
+  } else if(details.reason == "update"){
+    localStorage.setItem('modalToOpen','update')
+    localStorage.setItem('version',thisVersion)
   }
 });
 
