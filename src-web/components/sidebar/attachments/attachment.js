@@ -7,7 +7,7 @@ class Attachment extends Component {
         <a
           href={this.props.url}
           target="_blank"
-          className="flex text-lg w-full no-underline text-purple-darker hover:text-purple-dark p-3"
+          className="flex text-lg w-full no-underline text-purple-darker hover:text-purple-dark px-3 py-4"
         >
           <div className="w-5/6 flex">
             <img
@@ -20,7 +20,7 @@ class Attachment extends Component {
             <i className="fas fa-download" />
           </div>
         </a>
-        <hr className="bg-grey-light" style={{ height: "1px" }} />
+        <div className="bg-grey-light" style={{ height: "1px" }} />
       </React.Fragment>
     );
   }

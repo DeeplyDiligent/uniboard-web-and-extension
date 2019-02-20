@@ -20,7 +20,6 @@ class Sidebar extends Component {
         
         // console.log(this.db.collection('dba').doc('eGlJZRO3B
         let weekData = this.props.data[this.props.match.params.id][this.props.match.params.branchid];
-        console.log(weekData.link)
         const styles = {};
         styles.sidebar = {right:0, zIndex:'1000', overflow:'scroll'}
         styles.sidebarBackground = {rgba:'(0,0,0,0)'}
