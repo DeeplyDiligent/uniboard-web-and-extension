@@ -111,6 +111,7 @@ class Database {
                 x.linktype
               )
           ),
+          link: item['link'],
           type: "week"
         };
 

@@ -23,7 +23,8 @@
     "storage",
     "unlimitedStorage",
     "tabs",
-    "downloads"
+    "downloads",
+    "https://lms.monash.edu/*"
   ],
   "web_accessible_resources": ["index.html", "img/*"],
   "content_scripts": [

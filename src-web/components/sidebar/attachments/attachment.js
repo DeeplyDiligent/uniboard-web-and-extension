@@ -4,15 +4,23 @@ class Attachment extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="flex text-lg w-full">
-        <div className='w-5/6 flex'>
-          <i className="fas fa-file-pdf" />
-          <div className="px-3 font-bold">{this.props.name}</div>
+        <a
+          href={this.props.url}
+          target="_blank"
+          className="flex text-lg w-full no-underline text-purple-darker hover:text-purple-dark px-3 py-4"
+        >
+          <div className="w-5/6 flex">
+            <img
+              src={this.props.icon}
+              style={{ width: "24px", height: "24px" }}
+            />
+            <div className="px-3 font-bold">{this.props.name}</div>
           </div>
-          <a className=" w-1/6 pr-2 text-right" href={this.props.url} target="_blank"><i className="fas fa-cloud-download-alt"></i></a>
-
-        </div>
-        <hr className="bg-grey-light" style={{height:"1px"}}/>
+          <div className=" w-1/6 pr-2 text-right">
+            <i className="fas fa-download" />
+          </div>
+        </a>
+        <div className="bg-grey-light" style={{ height: "1px" }} />
       </React.Fragment>
     );
   }
