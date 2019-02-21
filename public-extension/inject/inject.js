@@ -59,6 +59,12 @@ function expandAndCheck(subjects) {
         $('#logo-spin').addClass('fa-spin')
         navigation.hide();
         $('<div id="takeOverNav">Please Wait...</div>').insertAfter(navigation)
+
+        modal.setFooterContent("")
+        modal.addFooterBtn('Minimize', 'tingle-btn tingle-btn--primary', function() {
+            modal.close();
+        });
+        
         progressBar();
     }    
 
@@ -123,6 +129,12 @@ function showSubjectSelector(subjectsSelected) {
         .set({
             allSubjectList: allSubjects
         }, function () {});
+    if (subjectsSelected.length){
+        modal.setFooterContent("")
+        modal.addFooterBtn('Minimize', 'tingle-btn tingle-btn--primary', function() {
+            modal.close();
+        });
+    }
     $("#loader").hide();
     $('<div id="subjects-div" class="bg-grey-lightest p-6"></div>').appendTo('#synopsis');
     $('#subjects-div').append("<div id='success-synopsis' style='text-align:center; display:none'>&#10004; Data Stored. <a href='#'>Click Here</a> to close this popup!</div>");
@@ -214,11 +226,6 @@ function renderPage(){
         }
     });
     $('#toggleminimize').click(showHideIframe);
-    
-    modal.setFooterContent("")
-    modal.addFooterBtn('Minimize', 'tingle-btn tingle-btn--primary', function() {
-        modal.close();
-    });
 
     $("#page").append('<iframe id="pageaction"  style="width:100%; border:none" height="100%" src="'+ chrome.extension.getURL('index.html')+'"></iframe>')
     $('head').append('<link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">');
@@ -269,8 +276,8 @@ function autoCreateNavbar(isCustomisePage){
 }
 
 function showSetup(){
-    startSetupButton = '<div style="text-align:center">Welcome! Please click the button below to start the setup. It will redirect you quite a few times so please be patient.</div>'+
-    '<br /><button id="startButton" style="display:block;margin:auto">Start</button>';
+    startSetupButton = '<div class="text-center m-3">Welcome! Please click the button below to start the setup. It will redirect you quite a few times so please be patient.</div>'+
+    '<button class="my-3 mx-auto block rounded-sm font-semibold tracking-wide text-white py-3 px-4" style="background-color: #7C4BFF;" id="startButton">Start</button>';
     $('#app').html("");
     $(startSetupButton).appendTo('#app');
     $('#startButton').click(function(){
