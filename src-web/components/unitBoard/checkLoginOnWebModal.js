@@ -41,6 +41,7 @@ class CheckLoginOnWebModal extends Component {
         <a
           href="https://lms.monash.edu/my/"
           target="_blank"
+          rel="noopener noreferrer"
           className="no-underline"
         >
           <button className="bg-transparent hover:bg-purple text-purple-dark font-semibold hover:text-white py-2 px-4 border border-purple hover:border-transparent rounded text-xl m-auto block">

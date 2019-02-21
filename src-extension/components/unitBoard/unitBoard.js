@@ -40,7 +40,7 @@ class UnitBoard extends Component {
       >
         <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink">
           <div className="flex">
-            <div style={{ width: "33px" }}>
+            <div className="flex-no-shrink" style={{ width: "33px" }}>
               <RenderLogo color={borderColor} />
             </div>
             <span className=" text-2xl font-semibold ml-4">

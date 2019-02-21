@@ -54,7 +54,7 @@ class FirebaseSyncOff extends Component {
     let modal = this.modal;
     let afterChange = this.props.onChange;
     let link =
-      '<a target="_blank" href="https://uniboard.app/login">https://uniboard.app/login</a>';
+      '<a target="_blank" rel="noopener noreferrer" href="https://uniboard.app/login">https://uniboard.app/login</a>';
     modal.setContent(
       '<h1 class="text-center">Done!</h1> <div class="text-center py-3 text-lg">Your data has been synced!</div>' +
         '<div class="text-center py-3 text-lg">Please visit ' +

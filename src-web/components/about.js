@@ -142,9 +142,12 @@ class About extends Component {
                   Can I use the app for free?
                 </h3>
                 <p className="text-lg leading-normal text-grey-darker mb-8">
-                  Yes! The app is 100% free. $Free.99. No money. None. Why? I
-                  believe in students and, I want to make your lives easier, not
-                  harder
+                  Yes! The app is 100% free. If you like the app, feel free to
+                  check out Deep's{" "}
+                  <a href="https://deeplydiligent.github.io/blog">Blog</a> and{" "}
+                  <a href="https://soundcloud.com/deeplydiligent-podcast">
+                    Podcast
+                  </a>.
                 </p>
               </div>
               <div className="w-full sm:w-1/2 px-6 py-6">

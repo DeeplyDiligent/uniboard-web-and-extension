@@ -6,8 +6,8 @@ import posed from 'react-pose';
 import NoAttachments from './attachments/noAttachments';
 
 const Box = posed.div({
-        visible: { opacity: 1 },
-        hidden: { opacity: 0 }
+        visible: { x: 0, transition: { duration: 300 } },
+        hidden: { x: 500 }
     })
 
 class Sidebar extends Component {
@@ -39,7 +39,7 @@ class Sidebar extends Component {
                         <div className="text-2xl font-bold">{this.props.match.params.id}</div>
                         {/* <div className="text">{this.props.match.params.id}</div> */}
                         <div className="bg-red-light brow my-4"></div>
-                        <a href={weekData.link} target="_blank" className = "text-md text-grey-darker flex no-underline flex-col md:flex-row hover:text-grey-dark">
+                        <a href={weekData.link} target="_blank" rel="noopener noreferrer" className = "text-md text-grey-darker flex no-underline flex-col md:flex-row hover:text-grey-dark">
                             <div className="flex-grow py-2">{weekData.name}</div>
                             <div className="py-2">Open Moodle <i className="fas fa-external-link-alt"></i></div>
                         </a>

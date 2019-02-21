@@ -7,6 +7,7 @@ class Attachment extends Component {
         <a
           href={this.props.url}
           target="_blank"
+          rel="noopener noreferrer"
           className="flex text-lg w-full no-underline text-purple-darker hover:text-purple-dark px-3 py-4"
         >
           <div className="w-5/6 flex">

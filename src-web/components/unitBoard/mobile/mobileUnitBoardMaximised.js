@@ -20,7 +20,7 @@ class MobileUnitBoardMaximised extends Component {
                 className='flex flex-1 max-w-sm overflow-hidden shadow-lg m-4 bg-white border-b-8 flex-col' >
                 <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink" onClick = {this.props.minimizeItems} >
                     <div className="flex">
-                    <div style={{ width: "33px" }}>
+                    <div className="flex-no-shrink" style={{ width: "33px" }}>
                         <RenderLogo color={borderColor} />
                     </div>
                         <span className=" text-3xl font-semibold ml-4">{database.shortenName(this.props.unitName)}</span>
