@@ -100,20 +100,6 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
               localStorage.setItem("userid", emailAddress);
               console.log("permanentref= " + emailAddress);
               chrome.storage.local.set({lastOnlineSync: Date.now()});
-              // chrome.tabs.query({ active: true, currentWindow: true }, function(
-              //   tabs
-              // ) {
-              //   var tab = tabs[0];
-              //   if (chrome.runtime.getManifest().debug) {
-              //     chrome.tabs.update(tab.id, {
-              //       url: "http://localhost:3000/app/"
-              //     });
-              //   } else {
-              //     chrome.tabs.update(tab.id, {
-              //       url: "http://moodlehero.net/app/"
-              //     });
-              //   }
-              // });
             });
         } else {
           db.collection("dba")
