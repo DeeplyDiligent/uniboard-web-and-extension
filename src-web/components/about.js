@@ -17,7 +17,8 @@ class About extends Component {
     $("#root").css({ height: "100%" });
   }
   render() {
-    let extensionLink = "https://chrome.google.com/webstore/detail/synopsis-your-moodle-hero/ikffeebmjnccffbijpcnlhadgdebadmc";
+    let extensionLink =
+      "https://chrome.google.com/webstore/detail/synopsis-your-moodle-hero/ikffeebmjnccffbijpcnlhadgdebadmc";
     return (
       <div className="overflow-hidden">
         <section className="bg-blue-lightest h-full py-24">
@@ -175,7 +176,7 @@ class About extends Component {
               <div className="w-full lg:w-1/2 px-6 py-6 m-auto text-center">
                 <img
                   className="rounded-full w-32 m-auto block -mb-6"
-                  src="https://media.licdn.com/dms/image/C5603AQEePIBcg8x7Cg/profile-displayphoto-shrink_800_800/0?e=1549497600&v=beta&t=-gSeaaKBcRg-nYhTcHeSBQqbqRhpXN-B7pHhYb_EPnY"
+                  src={process.env.PUBLIC_URL + "/faces/deep.jpg"}
                 />
                 <div className="bg-yellow-lightest rounded shadow-lg overflow-hidden p-8">
                   <div className="text-2xl font-black text-bold">
@@ -200,7 +201,7 @@ class About extends Component {
                 <div className="w-full lg:w-1/2 px-6 py-6 text-center">
                   <img
                     className="rounded-full w-32 m-auto block -mb-6"
-                    src="https://media.licdn.com/dms/image/C5103AQHJkyVkFguwKg/profile-displayphoto-shrink_200_200/0?e=1549497600&v=beta&t=rAC4RmbTxhDX07TE6XL8ahRI7H9cV6kfRgn-FuY-094"
+                    src={process.env.PUBLIC_URL + "/faces/sameer.jpg"}
                   />
                   <div className="bg-yellow-lighter rounded shadow-lg overflow-hidden p-8">
                     <div className="text-2xl font-black text-bold">
@@ -234,7 +235,17 @@ class About extends Component {
                     <div className="flex justify-center py-4">
                       <div className="bg-grey-light h-1 w-16 rounded" />
                     </div>
-                    <div className="text-lg text-black leading-tight p-1" />
+                    <div className="text-lg text-black leading-tight p-1">
+                      Loves Big Bang Theory&nbsp;
+                      <i className="fas fa-space-shuttle" />
+                    </div>
+                    <div className="text-lg text-black leading-tight p-1">
+                      IT Officer at MASA
+                    </div>
+                    <div className="text-lg text-black leading-tight p-1">
+                      Monash University: Accounting & Business Information
+                      Systems
+                    </div>
                   </div>
                 </div>
                 <div className="w-full lg:w-1/2 px-6 py-6 text-center">
@@ -249,13 +260,23 @@ class About extends Component {
                     <div className="flex justify-center py-4">
                       <div className="bg-grey-light h-1 w-16 rounded" />
                     </div>
-                    <div className="text-lg text-black leading-tight p-1" />
+                    <div className="text-lg text-black leading-tight p-1">
+                      Loves Big Bang Theory&nbsp;
+                      <i className="fas fa-space-shuttle" />
+                    </div>
+                    <div className="text-lg text-black leading-tight p-1">
+                      IT Officer at MASA
+                    </div>
+                    <div className="text-lg text-black leading-tight p-1">
+                      Monash University: Accounting & Business Information
+                      Systems
+                    </div>
                   </div>
                 </div>
                 <div className="w-full lg:w-1/2 px-6 py-6 text-center">
                   <img
                     className="rounded-full w-32 m-auto block -mb-6"
-                    src="https://scienceoxford.com/wp-content/uploads/2018/03/avatar-male.jpg"
+                    src={process.env.PUBLIC_URL + "/faces/nikhil.jpg"}
                   />
                   <div className="bg-yellow-light rounded shadow-lg overflow-hidden p-8">
                     <div className="text-2xl font-black text-bold">
@@ -264,7 +285,17 @@ class About extends Component {
                     <div className="flex justify-center py-4">
                       <div className="bg-grey-light h-1 w-16 rounded" />
                     </div>
-                    <div className="text-lg text-black leading-tight p-1" />
+                    <div className="text-lg text-black leading-tight p-1">
+                      Loves Big Bang Theory&nbsp;
+                      <i className="fas fa-space-shuttle" />
+                    </div>
+                    <div className="text-lg text-black leading-tight p-1">
+                      IT Officer at MASA
+                    </div>
+                    <div className="text-lg text-black leading-tight p-1">
+                      Monash University: Accounting & Business Information
+                      Systems
+                    </div>
                   </div>
                 </div>
               </div>
@@ -290,8 +321,12 @@ class About extends Component {
             </small>
             <small className="block text-sm text-grey p-3">
               *We do not have any stake in Monash University. No data is sent to
-              UniBoard unless explicitly specified by the user.<br/>
-              <Link to='/privacy-policy'className="block text-sm text-grey text-right">
+              UniBoard unless explicitly specified by the user.
+              <br />
+              <Link
+                to="/privacy-policy"
+                className="block text-sm text-grey text-right"
+              >
                 Privacy Policy
               </Link>
             </small>
