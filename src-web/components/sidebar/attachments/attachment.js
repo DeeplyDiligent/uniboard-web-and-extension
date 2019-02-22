@@ -18,7 +18,7 @@ class Attachment extends Component {
             <div className="px-3 font-bold">{this.props.name}</div>
           </div>
           <div className=" w-1/6 pr-2 text-right">
-            <i className="fas fa-download" />
+            {(this.props.type === 'FILES')?<i className="fas fa-download" />:<i className="fas fa-external-link-alt" />}
           </div>
         </a>
         <div className="bg-grey-light" style={{ height: "1px" }} />

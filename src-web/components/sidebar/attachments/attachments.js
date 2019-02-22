@@ -14,7 +14,7 @@ class Attachments extends Component {
                     <div className="w-full text-right">{this.props.attachments.length}</div>
                 </div>
                 {this.props.attachments.map((attachment, i) =>{
-                    return <Attachment key={i} name={attachment.name} url={attachment.url} icon={attachment.iconLink}/>
+                    return <Attachment key={i} name={attachment.name} url={attachment.url} icon={attachment.iconLink} type={this.props.heading}/>
                 })}
             </React.Fragment>
         );
