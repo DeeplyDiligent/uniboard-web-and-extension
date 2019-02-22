@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 import WeekCard from "./weekCard";
 import database from "../../data";
-import OptionsMenu from "./optionsMenu";
 import RenderLogo from "../../renderLogo";
+import LinkButton from "../styledComponents/linkButton";
+import download from "../../download";
+
 
 class UnitBoard extends Component {
   state = { optionsHidden: true };
   constructor(props) {
     super(props);
     this.shortUnitName = database.shortenName(this.props.unitName);
+  }
+  nameCanBeShortened(name) {
+    return database.shortenName(name) !== name;
+  }
+  startDownload = () => {
+    download.startDownload(this.props.unitData,this.shortUnitName);
   }
   showOptions = () => {
     if (this.state.optionsHidden) {
@@ -38,24 +46,41 @@ class UnitBoard extends Component {
         }}
         className="flex flex-1 max-w-sm overflow-hidden shadow-lg m-2 bg-white border-b-8 flex-col"
       >
-        <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink">
-          <div className="flex">
-            <div className="flex-no-shrink" style={{ width: "33px" }}>
+        <div className="flex pl-6 pr-3 py-3 bg-white border-b border-grey-light flex-no-shrink">
+          <div className="flex-no-shrink relative" style={{ width: "33px" }}>
+            <div
+              className="absolute"
+              style={{
+                width: "33px",
+                top: "50%",
+                transform: "translateY(-50%)"
+              }}
+            >
               <RenderLogo color={borderColor} />
             </div>
-            <span className=" text-2xl font-semibold ml-4">
-              {this.shortUnitName}
-            </span>
           </div>
-          <div className="flex mt-1 cursor-pointer" onClick={this.showOptions}>
-            <div className="absolute">
-              <i className="text-xl text-grey-dark fas fa-ellipsis-v" />
-              <OptionsMenu
-                hidden={this.state.optionsHidden}
-                data={this.props.unitData}
-                unitName={this.shortUnitName}
-              />
-            </div>
+          <div className="flex flex-col flex-grow mx-4 overflow-hidden">
+            {this.nameCanBeShortened(this.props.unitName) ? (
+              <React.Fragment>
+                <span className=" text-3xl font-semibold">
+                  {database.shortenName(this.props.unitName)}
+                </span>
+                <span
+                  title={this.props.unitName}
+                  className="text-sm text-grey font-semibold whitespace-no-wrap overflow-hidden"
+                  style={{ textOverflow: "ellipsis" }}
+                >
+                  {this.props.unitName}
+                </span>
+              </React.Fragment>
+            ) : (
+              <span className="text-md font-semibold ml-4">
+                {this.props.unitName}
+              </span>
+            )}
+          </div>
+          <div onClick={this.startDownload} className="flex flex-col justify-center" title="Download All">
+            <LinkButton text={<i class="fas fa-file-export text-2xl" />} />
           </div>
         </div>
         <div className="px-4 py-2" style={{ overflowY: "scroll" }}>

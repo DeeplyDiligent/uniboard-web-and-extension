@@ -26,7 +26,7 @@ class WelcomeToExtensionModal extends Component {
           This is Deep, one of the main developers at UniBoard. We love making
           new user experiences. If you do have any feedback, please do let us
           know on our website here:{" "}
-          <a href="https://uniboard.app/about">https://uniboard.app/about</a>
+          <a target="_blank" rel="noopener noreferrer" href="https://uniboard.app/about">https://uniboard.app/about</a>
         </p>
         <button
           onClick={this.onCloseModal}
@@ -41,9 +41,12 @@ class WelcomeToExtensionModal extends Component {
         <h2 className="pb-3 pr-10">Welcome to UniBoard version {this.state.version}!</h2>
         <p className="py-3 text-lg">The main changes in this version are</p>
         <div className="py-3 text-lg">
-          - Out with the old <br />
-          - In with the new <br />
-          - this is guuud
+          - Mobile compatibility (<a target="_blank" rel="noopener noreferrer" href="https://uniboard.app">https://uniboard.app/</a>) <br />
+          - All attachments put onto week cards<br />
+          - Search Feature (this is really useful) <br />
+          - Ability to minimise to go back to old moodle <br />
+          - Ability to download added back <br />
+          - this stuff is guuud
         </div>
         <button
           onClick={this.onCloseModal}
