@@ -51,3 +51,7 @@ body {
   transform: translateY(-50%);
   transform: translateX(-50%);
 }
+
+.weekcard:hover {
+  transform: scale(1.02, 1.02);
+}

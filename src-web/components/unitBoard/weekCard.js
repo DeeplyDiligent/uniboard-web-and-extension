@@ -10,8 +10,8 @@ class WeekCard extends Component {
         style={{ textDecoration: "none" }}
       >
         <div
-          style={{ width: "100%" }}
-          className="border-2 rounded border-light-grey p-4 my-2"
+          style={{ width: "100%", transition: "all 0.1s ease-in-out" }}
+          className="border-2 rounded border-light-grey p-4 my-2 hover:shadow-md weekcard"
         >
           <div>
             <div className="brow mb-3" style={{backgroundColor:this.props.color}} />

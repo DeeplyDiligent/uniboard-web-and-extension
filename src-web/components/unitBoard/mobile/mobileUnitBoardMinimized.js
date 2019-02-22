@@ -34,8 +34,17 @@ class MobileUnitBoardMinimized extends Component {
       >
         <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink overflow-hidden">
           <div className="flex overflow-hidden">
-            <div className="flex-no-shrink" style={{ width: "33px" }}>
-              <RenderLogo color={borderColor} />
+            <div className="flex-no-shrink relative" style={{ width: "33px" }}>
+              <div
+                className="absolute"
+                style={{
+                  width: "33px",
+                  top: "50%",
+                  transform: "translateY(-50%)"
+                }}
+              >
+                <RenderLogo color={borderColor} />
+              </div>
             </div>
             <div className="flex flex-col overflow-hidden">
               {this.nameCanBeShortened(this.props.unitName) ? (
@@ -43,7 +52,11 @@ class MobileUnitBoardMinimized extends Component {
                   <span className=" text-3xl font-semibold ml-4">
                     {database.shortenName(this.props.unitName)}
                   </span>
-                  <span title={this.props.unitName} className="text-sm text-grey font-semibold ml-4 whitespace-no-wrap overflow-hidden" style={{textOverflow:'ellipsis'}}>
+                  <span
+                    title={this.props.unitName}
+                    className="text-sm text-grey font-semibold ml-4 whitespace-no-wrap overflow-hidden"
+                    style={{ textOverflow: "ellipsis" }}
+                  >
                     {this.props.unitName}
                   </span>
                 </React.Fragment>
