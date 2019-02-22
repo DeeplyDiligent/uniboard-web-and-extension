@@ -12,6 +12,9 @@ class UnitBoard extends Component {
       this.setState({ optionsHidden: true });
     }
   };
+  nameCanBeShortened(name) {
+    return database.shortenName(name) !== name;
+  }
   render() {
     const colorList = [
       "#3e49bb",
@@ -23,6 +26,7 @@ class UnitBoard extends Component {
       "#20B2AA"
     ];
     var borderColor = colorList[this.props.number];
+
     return (
       <div
         style={{
@@ -34,13 +38,26 @@ class UnitBoard extends Component {
         className="flex flex-1 max-w-sm overflow-hidden shadow-lg m-2 bg-white border-b-8 flex-col"
       >
         <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink">
-          <div className="flex">
+          <div className="flex overflow-hidden">
             <div className="flex-no-shrink" style={{ width: "33px" }}>
               <RenderLogo color={borderColor} />
             </div>
-            <span className=" text-3xl font-semibold ml-4">
-              {database.shortenName(this.props.unitName)}
-            </span>
+            <div className="flex flex-col overflow-hidden">
+              {this.nameCanBeShortened(this.props.unitName) ? (
+                <React.Fragment>
+                  <span className=" text-3xl font-semibold ml-4">
+                    {database.shortenName(this.props.unitName)}
+                  </span>
+                  <span title={this.props.unitName} className="text-sm text-grey font-semibold ml-4 whitespace-no-wrap overflow-hidden" style={{textOverflow:'ellipsis'}}>
+                    {this.props.unitName}
+                  </span>
+                </React.Fragment>
+              ) : (
+                <span className="text-lg font-semibold ml-4">
+                  {this.props.unitName}
+                </span>
+              )}
+            </div>
           </div>
           {/* <div className="flex1 mt-2 cursor-pointer px-3" onClick = {this.showOptions}>
                     <div className="absolute">
