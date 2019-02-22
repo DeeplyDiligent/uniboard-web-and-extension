@@ -37,34 +37,39 @@ class UnitBoard extends Component {
         }}
         className="flex flex-1 max-w-sm overflow-hidden shadow-lg m-2 bg-white border-b-8 flex-col"
       >
-        <div className="flex justify-between content-center px-6 py-3 bg-white border-b border-grey-light flex-no-shrink">
-          <div className="flex overflow-hidden">
-            <div className="flex-no-shrink" style={{ width: "33px" }}>
+        <div className="flex pl-6 pr-3 py-3 bg-white border-b border-grey-light flex-no-shrink">
+          <div className="flex-no-shrink relative" style={{ width: "33px" }}>
+            <div
+              className="absolute"
+              style={{
+                width: "33px",
+                top: "50%",
+                transform: "translateY(-50%)"
+              }}
+            >
               <RenderLogo color={borderColor} />
             </div>
-            <div className="flex flex-col overflow-hidden">
-              {this.nameCanBeShortened(this.props.unitName) ? (
-                <React.Fragment>
-                  <span className=" text-3xl font-semibold ml-4">
-                    {database.shortenName(this.props.unitName)}
-                  </span>
-                  <span title={this.props.unitName} className="text-sm text-grey font-semibold ml-4 whitespace-no-wrap overflow-hidden" style={{textOverflow:'ellipsis'}}>
-                    {this.props.unitName}
-                  </span>
-                </React.Fragment>
-              ) : (
-                <span className="text-lg font-semibold ml-4">
+          </div>
+          <div className="flex flex-col flex-grow mx-4 overflow-hidden">
+            {this.nameCanBeShortened(this.props.unitName) ? (
+              <React.Fragment>
+                <span className=" text-3xl font-semibold">
+                  {database.shortenName(this.props.unitName)}
+                </span>
+                <span
+                  title={this.props.unitName}
+                  className="text-sm text-grey font-semibold whitespace-no-wrap overflow-hidden"
+                  style={{ textOverflow: "ellipsis" }}
+                >
                   {this.props.unitName}
                 </span>
-              )}
-            </div>
+              </React.Fragment>
+            ) : (
+              <span className="text-md font-semibold ml-4">
+                {this.props.unitName}
+              </span>
+            )}
           </div>
-          {/* <div className="flex1 mt-2 cursor-pointer px-3" onClick = {this.showOptions}>
-                    <div className="absolute">
-                        <i className="text-xl text-grey-dark fas fa-ellipsis-v"></i>
-                        <OptionsMenu hidden={this.state.optionsHidden}/>
-                    </div>
-                </div> */}
         </div>
         <div className="px-4 py-2" style={{ overflowY: "scroll" }}>
           {Object.keys(this.props.unitData).map((key, _) => {

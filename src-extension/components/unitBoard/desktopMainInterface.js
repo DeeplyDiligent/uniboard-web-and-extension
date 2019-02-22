@@ -52,7 +52,12 @@ class DesktopMainInterface extends Component {
             maxWidth={"max-w-md mx-auto"}
           />
         ) : (
-          <UnitBoards data={this.props.data} />
+          <React.Fragment>
+            <div className="pl-6 w-64 text-2xl" style={{ marginTop: "-27px" }}>
+              Your Units:
+            </div>
+            <UnitBoards data={this.props.data} />
+          </React.Fragment>
         )}
       </div>
     );

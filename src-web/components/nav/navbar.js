@@ -41,7 +41,7 @@ class Navbar extends Component {
             homeAndAboutButton = (
             <React.Fragment>
                 <Link to="/app" className="block lg:inline-block lg:mt-0 text-purple hover:text-purple-light">
-                    <LinkButton text="App" />
+                    <LinkButton text="Home" />
                 </Link>
                 <Link to="/about" className="block lg:inline-block lg:mt-0 text-purple hover:text-purple-light">
                     <LinkButton text="About" />
