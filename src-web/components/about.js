@@ -106,9 +106,11 @@ class About extends Component {
               <p className="text-xl text-white leading-normal mr-6 mb-8 md:mb-0 text-center md:text-left">
                 What are you waiting for?
               </p>
-              <button className="bg-blue hover:bg-blue-dark text-xl leading-none text-white font-semibold h-10 px-6 rounded-full whitespace-no-wrap">
-                Download The Extension
-              </button>
+              <a href={extensionLink}>
+                <button className="bg-blue hover:bg-blue-dark text-xl leading-none text-white font-semibold h-10 px-6 rounded-full whitespace-no-wrap">
+                  Download The Extension
+                </button>
+              </a>
             </div>
           </div>
         </section>
@@ -147,7 +149,8 @@ class About extends Component {
                   <a href="https://deeplydiligent.github.io/blog">Blog</a> and{" "}
                   <a href="https://soundcloud.com/deeplydiligent-podcast">
                     Podcast
-                  </a>.
+                  </a>
+                  .
                 </p>
               </div>
               <div className="w-full sm:w-1/2 px-6 py-6">
