@@ -1,7 +1,7 @@
 {
-  "short_name": "Uniboard",
+  "short_name": "UniBoard",
   "content_security_policy": "script-src 'self' 'sha256-5As4+3YpY62+l38PsxCEkjB1R4YtyktBtRScTJ3fyLU='; object-src 'self'",
-  "name": "Uniboard - Let's Get Studying!",
+  "name": "UniBoard - Let's Get Studying!",
   "manifest_version": 2,
   "browser_action": {
     "default_title": "Uniboard",
