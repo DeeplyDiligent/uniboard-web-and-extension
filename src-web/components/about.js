@@ -21,19 +21,23 @@ class About extends Component {
       "https://chrome.google.com/webstore/detail/synopsis-your-moodle-hero/ikffeebmjnccffbijpcnlhadgdebadmc";
     return (
       <div className="overflow-hidden">
-        <section className="bg-blue-lightest h-full py-24">
+        <section className="bg-blue-lightest h-full py-12">
           <div className="w-5/6 max-w-lg ml-auto mr-auto h-full">
             <div className="flex items-center justify-center text-center h-full">
               <div>
                 <img
-                  className="h-64 pb-10"
-                  src={process.env.PUBLIC_URL + "/uniboard.svg"}
+                  className="h-128 mb-6"
+                  src={process.env.PUBLIC_URL + "/img/features.svg"}
+                />
+                <img
+                  className="w-5/6 mb-6 shadow-lg rounded-lg"
+                  src={process.env.PUBLIC_URL + "/img/mockup.png"}
                 />
                 <h1 className="text-4xl sm:text-5xl font-semibold leading-none mb-4">
                   This, is Uniboard.
                 </h1>
                 <h2 className="text-2xl sm:text-3xl text-blue-darker opacity-75 font-normal leading-tight mb-8">
-                  We are a team of 5, all on a mission to make Moodle* easy.
+                  It makes using Moodle a piece of cake &#x1F382;!
                 </h2>
                 <div className="flex flex-col sm:flex-row justify-center pt-8">
                   <a href={extensionLink}>
@@ -53,8 +57,18 @@ class About extends Component {
           </div>
         </section>
         <section className="bg-blue-lighter py-8">
-          <div className="w-full max-w-lg ml-auto mr-auto mt-8 mb-8">
-            <div className="flex flex-col md:flex-row items-center justify-center">
+          <div className="w-full max-w-lg ml-auto mr-auto">
+            <div className="flex flex-col md:flex-row items-center justify-center my-6">
+              <p className="text-xl text-black leading-normal mr-6 mb-8 md:mb-0 text-center md:text-left">
+                New Here? Welcome to UniBoard!
+              </p>
+              <a href={extensionLink}>
+                <button className="bg-blue hover:bg-blue-dark text-xl leading-none text-white font-semibold h-10 px-6 rounded-full whitespace-no-wrap no-underline">
+                  Get Started
+                </button>
+              </a>
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-center my-6">
               <p className="text-xl text-black leading-normal mr-6 mb-8 md:mb-0 text-center md:text-left">
                 Already have the extension?
               </p>
@@ -97,6 +111,99 @@ class About extends Component {
                   batch downloads of your Lectures and Tutes.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-blue-lighter py-10">
+          <div className="w-5/6 max-w-lg ml-auto mr-auto mt-8 mb-8 text-center">
+            <div className="text-5xl sm:text-6xl font-semibold leading-none mb-10">
+              Other Exciting Features
+            </div>
+            <div className="flex flex-wrap -mx-6 my-6">
+              <div className="w-full sm:w-1/2 px-6 py-6">
+                <h3 className="text-2xl sm:text-3xl font-semibold leading-none mb-3">
+                  View Multiple Subjects at Once
+                </h3>
+                <div className="my-8 text-5xl text-teal-dark">
+                  <img
+                    className="rounded-lg shadow-md w-full m-auto block"
+                    src={process.env.PUBLIC_URL + "/img/multiplesubjects.png"}
+                  />
+                </div>
+                <p className="text-lg sm:text-xl leading-normal text-grey-darker mb-8">
+                  Are you a multitasker too? Easy!
+                </p>
+                <h3 className="text-2xl sm:text-3xl font-semibold leading-none mb-3">
+                  Search Quickly
+                </h3>
+                <div className="my-8 text-5xl text-teal-dark">
+                  <img
+                    className="rounded-lg shadow-md w-full m-auto block"
+                    src={process.env.PUBLIC_URL + "/img/searchfeature.png"}
+                  />
+                </div>
+                <p className="text-lg sm:text-xl leading-normal text-grey-darker">
+                  Need access to Week 1 content in Week 12? Find it, fast!
+                </p>
+              </div>
+              <div className="w-full sm:w-1/2 px-6 py-6">
+                <h3 className="text-2xl sm:text-3xl font-semibold leading-none mb-3">
+                  Neatly Organised For You
+                </h3>
+                <div className="my-8 text-5xl text-teal-dark">
+                  <img
+                    className="rounded-lg shadow-md w-full m-auto block"
+                    src={process.env.PUBLIC_URL + "/img/typesoffiles.png"}
+                  />
+                </div>
+                <p className="text-lg sm:text-xl leading-normal text-grey-darker">
+                  Who likes messing around with slides and links?
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="moreInfo" className="bg-white py-10">
+          <div className="w-5/6 max-w-lg ml-auto mr-auto mt-8 mb-8 text-center">
+            <div className="text-5xl sm:text-6xl font-semibold leading-none mb-2">
+              Upcoming Features
+            </div>
+            <div className="text-xl font-semibold leading-none mb-10 text-grey">
+              We're always growing!
+            </div>
+            <div className="flex flex-wrap -mx-6 my-6">
+              <div className="w-full sm:w-1/2 px-6 py-6">
+                <div className="mb-8 text-5xl text-teal-dark">
+                  <i className="fas fa-search" />
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-semibold leading-none mb-3">
+                  In-Depth Search
+                </h3>
+                <p className="text-lg sm:text-xl leading-normal text-grey-darker mb-8">
+                  Search for tags, file contents and file context. Search is
+                  already a really cool feature, we ought to make it even
+                  better!
+                </p>
+              </div>
+              <div className="w-full sm:w-1/2 px-6 py-6">
+                <div className="mb-8 text-5xl text-red-dark">
+                  <i className="fas fa-tags" />
+                </div>
+                <h3 className="text-3xl sm:text-4xl font-semibold leading-none mb-3">
+                  Tag To Your Heart's Content
+                </h3>
+                <p className="text-lg sm:text-xl leading-normal text-grey-darker mb-8">
+                  Organise your files the way you want by tagging them, then
+                  view those files in a tag directory viewer.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col md:flex-row items-center justify-center">
+              <a href={'https://bitbucket.org/deeplydiligent/moodlehero-react-extension/'}>
+                <button className="bg-blue hover:bg-blue-dark text-xl leading-none text-white font-semibold h-10 px-6 rounded-full whitespace-no-wrap">
+                  <i className="fab fa-bitbucket" />&emsp;Contribute On Bitbucket
+                </button>
+              </a>
             </div>
           </div>
         </section>

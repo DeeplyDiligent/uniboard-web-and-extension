@@ -8,10 +8,13 @@ class GetTheExtension extends Component {
   render() {
     return (
       <div className="center-on-page">
-        <h3>
-          Hi there! If you're new here, you can get the extension at the link
-          below. Otherwise, you may have logged into the wrong account.
-        </h3>
+        <div className="leading-loose">
+          Hi there, we can't find your database record!<br /> 
+          1. Please Check your internet connection and refresh the page<br />
+          2. If you're new here, you can get the extension at the link
+          below.<br />
+          3. Please check that you have logged into the correct account.
+        </div>
         <button
           onClick={this.logout}
           className="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 my-2 rounded"
