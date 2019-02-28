@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-BUILD_TYPE='web'
+BUILD_TYPE='extension'
 echo "Building $BUILD_TYPE"
 rm -r public
 rm -r src

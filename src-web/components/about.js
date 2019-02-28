@@ -26,19 +26,19 @@ class About extends Component {
             <div className="flex items-center justify-center text-center h-full">
               <div>
                 <img
-                  className="h-128 mb-6"
-                  src={process.env.PUBLIC_URL + "/img/features.svg"}
-                />
-                <img
-                  className="w-5/6 mb-6 shadow-lg rounded-lg"
+                  className="w-full md:w-2/3 mb-6"
                   src={process.env.PUBLIC_URL + "/img/mockup.png"}
                 />
-                <h1 className="text-4xl sm:text-5xl font-semibold leading-none mb-4">
+                <h1 className="text-4xl sm:text-5xl font-semibold leading-none">
                   This, is Uniboard.
                 </h1>
                 <h2 className="text-2xl sm:text-3xl text-blue-darker opacity-75 font-normal leading-tight mb-8">
                   It makes using Moodle a piece of cake &#x1F382;!
                 </h2>
+                <img
+                  className="h-128 w-full md:w-2/3"
+                  src={process.env.PUBLIC_URL + "/img/features.svg"}
+                />
                 <div className="flex flex-col sm:flex-row justify-center pt-8">
                   <a href={extensionLink}>
                     <button className="bg-blue hover:bg-blue-dark text-2xl leading-none text-white font-semibold h-12 px-8 rounded-full whitespace-no-wrap mb-2 sm:mb-0 sm:mr-2">

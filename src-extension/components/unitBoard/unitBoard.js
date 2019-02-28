@@ -44,7 +44,7 @@ class UnitBoard extends Component {
           borderRadius: "6px",
           borderColor: borderColor
         }}
-        className="flex flex-1 max-w-sm overflow-hidden shadow-lg m-2 bg-white border-b-8 flex-col"
+        className="flex flex-1 max-w-sm overflow-hidden shadow-lg m-2 mb-4 bg-white border-b-8 flex-col"
       >
         <div className="flex pl-6 pr-3 py-3 bg-white border-b border-grey-light flex-no-shrink">
           <div className="flex-no-shrink relative" style={{ width: "33px" }}>
@@ -80,7 +80,7 @@ class UnitBoard extends Component {
             )}
           </div>
           <div onClick={this.startDownload} className="flex flex-col justify-center" title="Download All">
-            <LinkButton text={<i class="fas fa-file-export text-2xl" />} />
+            <LinkButton text={<i class="fas fa-file-export text-2xl my-2" />} />
           </div>
         </div>
         <div className="px-4 py-2" style={{ overflowY: "scroll" }}>
