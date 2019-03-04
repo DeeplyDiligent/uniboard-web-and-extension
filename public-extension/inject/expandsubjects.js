@@ -37,6 +37,23 @@ function expand(subjects,doneLoading) {
             $("#" + expandablebranch).trigger("click")
         }
     }
+
+    function createUserInputtedElements(subjects){
+        console.log(subjects)
+        subjects.forEach(function(courseId){
+            if (/^[0-9]{1,5}$/.test(courseId) && !navigation.html().includes(courseId)) {
+                navigation.find('li').last().before('<li class="type_course depth_3 contains_branch" aria-labelledby="label_3_15" tabindex="-1">'+
+                    '<p class="tree_item branch" role="treeitem" id="expandable_branch_20_'+courseId+'" aria-expanded="false" data-requires-ajax="true" data-loaded="false" data-node-id="expandable_branch_20_'+courseId+'" data-node-key="'+courseId+'" data-node-type="20" tabindex="-1" aria-selected="false">'+
+                        '<a tabindex="-1" id="label_3_15" title="'+courseId+'" href="https://lms.monash.edu/course/view.php?id='+courseId+'">'+courseId+'</a>'+
+                    '</p>'+
+                '</li>')
+            }
+        })
+    }
+
+    createUserInputtedElements(subjects);
+    //refresh links
+    navigationLinks = $(navigationLinks.selector);
     navigationLinks.each(function () {
         if ($(this).attr('title') != null && subjects.indexOf($(this).attr('title')) >= 0) {
             console.log('matching subject found');
@@ -44,14 +61,12 @@ function expand(subjects,doneLoading) {
             var expBranch = $(this)
                 .parent()
                 .attr('id');
-            subjectattr = {};
             subjectattr.id = expBranch;
             subjectattr.dateCreated = new Date().getTime();
             subjectattr.expandedname = $(this).attr('title');
-            subjectattr.name = $(this)
-                .attr('title')
-                .substring(0, 7);
+            subjectattr.name = $(this).attr('title').substring(0, 7);
             subjectsattr[$(this).attr('title')] = (subjectattr);
+            console.log(subjectsattr)
             expandall(expBranch);
         }
     });

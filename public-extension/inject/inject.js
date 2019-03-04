@@ -49,26 +49,6 @@ function expandAndCheck(subjects) {
         });
 
     }
-    
-
-    if (subjects == null) {
-        subjects = [];
-    } else {
-        $('#subjects-div').hide();
-        $('#loader').show();
-        $('#logo-spin').addClass('fa-spin')
-        navigation.hide();
-        $('<div id="takeOverNav">Please Wait...</div>').insertAfter(navigation)
-
-        modal.setFooterContent("")
-        modal.addFooterBtn('Minimize', 'tingle-btn tingle-btn--primary', function() {
-            modal.close();
-        });
-        
-        progressBar();
-    }    
-
-    // var loadSubjects = window.setTimeout(doneLoading, 10000)
 
     function doneLoading(subjectsattr){
         // clearTimeout(loadSubjects);
@@ -105,6 +85,22 @@ function expandAndCheck(subjects) {
             });
     }
 
+    if (subjects == null) {
+        subjects = [];
+    } else {
+        $('#subjects-div').hide();
+        $('#loader').show();
+        $('#logo-spin').addClass('fa-spin')
+        navigation.hide();
+        $('<div id="takeOverNav">Please Wait...</div>').insertAfter(navigation)
+
+        modal.setFooterContent("")
+        modal.addFooterBtn('Minimize', 'tingle-btn tingle-btn--primary', function() {
+            modal.close();
+        });
+        
+        progressBar();
+    }
     //from expandsubjects.js
     expand(subjects,doneLoading);
 
@@ -148,12 +144,14 @@ function showSubjectSelector(subjectsSelected) {
             "<button class='mt-3 rounded-sm font-semibold tracking-wide text-white py-3 px-4' style='background-color: #7C4BFF;' id='saveSelection'>Next</button>"+
         "</div>"
     );
-    $(".js-example-basic-multiple.js-states.form-control").select2({data: allSubjects, width:'100%'});
-    $('.js-example-basic-multiple.js-states.form-control').select2();
+    $(".js-example-basic-multiple.js-states.form-control").select2({
+        data: allSubjects, 
+        tags: true
+    });
     $('.js-example-basic-multiple.js-states.form-control')
         .val(subjectsSelected)
         .trigger('change');
-        $('.select2-container').attr('style','width:100%!important');
+    $('.select2-container').attr('style','width:100%!important');
 
     $("#saveSelection").click(saveSelection);
 }
@@ -167,8 +165,7 @@ function saveSelection(){
     htmlOutput.forEach(function (i) {
         selectedSubjects.push(i['text']);
     });
-
-    console.log(selectedSubjects);
+    
     chrome
         .storage
         .local
@@ -313,20 +310,18 @@ chrome
                 isCustomisePage = $('#page-header .singlebutton button').html()==="Customise this page"?false:true;
                 isAMoodlePage = $('#page-header .singlebutton button').length>0
                 
-                if ((navigationLinks.length === 0|| (isCustomisePage))&&isAMoodlePage){
-                    modal.open();
-                    // autoCreateNavbar(isCustomisePage);
-                    chrome.storage.local.get("isSettingUp", function(data){
-                        console.log(data['isSettingUp']);
-                        if (data['isSettingUp']){
+                chrome.storage.local.get(null, function (result) {
+                    if ((navigationLinks.length === 0|| (isCustomisePage && result['isSettingUp']))&&isAMoodlePage){
+                        modal.open();
+                        console.log(result['isSettingUp']);
+                        if (result['isSettingUp']){
                             autoCreateNavbar(isCustomisePage);
                         } else {
                             showSetup();
                         }
-                     });
-                } else {
-                    chrome.storage.local.set({isSettingUp:null});
-                    chrome.storage.local.get(null, function (result) {
+                        
+                    } else {
+                        chrome.storage.local.set({isSettingUp:null});
                         subjectsSelected = result['subjectsSelected'];
                         if (subjectsSelected == null) {
                             modal.open();
@@ -343,8 +338,8 @@ chrome
                             }
                             expandAndCheck(subjectsSelected);
                         }
-                    });
-                }
+                    }
+                });
                 setInterval(refreshPageIfNotLoggedIn, 30*1000);
             }
         }, 10);

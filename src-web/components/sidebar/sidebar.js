@@ -1,3 +1,4 @@
+/*global chrome*/
 import React, { Component } from 'react';
 import Attachments from './attachments/attachments';
 import TodoApp from './todoList/todoList'
@@ -18,8 +19,6 @@ class Sidebar extends Component {
     }
 
     render() {
-        
-        // console.log(this.db.collection('dba').doc('eGlJZRO3B
         let weekData = this.props.data[this.props.match.params.id][this.props.match.params.branchid];
         const styles = {};
         styles.sidebar = {right:0, zIndex:'1000', overflow:'scroll'}
@@ -28,13 +27,14 @@ class Sidebar extends Component {
            let totalFiles = (weekData.files.length + weekData.assignments.length + weekData.quizzes.length + weekData.folders.length + weekData.links.length + weekData.forums.length)
             return (
                 <div className="w-full h-full absolute" >
-                <Link to='/home'> 
-                    <div className="sidebarBackground h-full" style={styles.sidebarBackground}></div>
-                </Link>
-                <Box pose={this.state.isVisible ? 'visible' : 'hidden'} className="sidebarContent fixed bg-white max-w-sm rounded h-full shadow-lg px-8 py-4 w-full lg:w-1/3 h-full" style={styles.sidebar}>                    
+                    <Link to='/home'> 
+                        <div className="sidebarBackground h-full" style={styles.sidebarBackground}></div>
+                    </Link>
+                    <Box pose={this.state.isVisible ? 'visible' : 'hidden'} className="sidebarContent fixed bg-white max-w-sm rounded h-full shadow-lg px-8 py-4 w-full lg:w-1/3 h-full" style={styles.sidebar}>                    
                         <Link to='/home'>
                         <div className="text-right pb-2 text-3xl">
-                        <i className="fas fa-times"></i></div>
+                            <i className="fas fa-times"></i>
+                        </div>
                         </Link>
                         <div className="text-2xl font-bold">{this.props.match.params.id}</div>
                         {/* <div className="text">{this.props.match.params.id}</div> */}
@@ -52,11 +52,10 @@ class Sidebar extends Component {
                             {(weekData.forums && weekData.forums.length) ? <Attachments attachments={weekData.forums} heading={"FORUMS"} icon={"fas fa-comment"}/>: false}
                             
                             {totalFiles ? false : <NoAttachments attachments={weekData}/>}
+                            {/* {totalFiles && typeof(chrome) !== 'undefined' ? <DownloadAttachments attachments={weekData} /> : false} */}
                         </div>
-                        {/* <TodoApp/> */}
                     </Box>
                 </div>
-                
             );
         }
         else {

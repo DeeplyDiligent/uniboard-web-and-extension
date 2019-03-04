@@ -30,7 +30,7 @@ class About extends Component {
                   src={process.env.PUBLIC_URL + "/img/mockup.png"}
                 />
                 <h1 className="text-4xl sm:text-5xl font-semibold leading-none">
-                  This, is Uniboard.
+                  A better way to moodle, UniBoard.
                 </h1>
                 <h2 className="text-2xl sm:text-3xl text-blue-darker opacity-75 font-normal leading-tight mb-8">
                   It makes using Moodle a piece of cake &#x1F382;!
@@ -56,7 +56,7 @@ class About extends Component {
             </div>
           </div>
         </section>
-        <section className="bg-blue-lighter py-8">
+        <section className="bg-white py-8">
           <div className="w-full max-w-lg ml-auto mr-auto">
             <div className="flex flex-col md:flex-row items-center justify-center my-6">
               <p className="text-xl text-black leading-normal mr-6 mb-8 md:mb-0 text-center md:text-left">
@@ -77,6 +77,62 @@ class About extends Component {
                   Log In
                 </button>
               </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-indigo-lightest py-10">
+          <div className="w-5/6 max-w-lg ml-auto mr-auto mt-8 mb-8">
+            <div className="flex flex-col justify-center text-center pb-8">
+              <h2 className="text-5xl font-semibold leading-none mb-4">
+                Getting Started
+              </h2>
+            </div>
+
+            <div
+              className="bg-white rounded shadow-lg overflow-hidden"
+              style={{ height: "350px" }}
+            >
+              <iframe
+                className="embed-responsive-item"
+                src="https://www.youtube.com/embed/lU_Qz0_ZcZQ"
+                allowFullScreen="true"
+                width="100%"
+                height="350"
+              />
+            </div>
+          </div>
+
+          <div className="w-5/6 max-w-md ml-auto mr-auto pt-8 mt-8 mb-8">
+            <div className="flex flex-wrap -mx-6 -my-6">
+              <div className="w-full sm:w-1/2 px-6 py-6">
+                <h3 className="text-xl font-semibold leading-tight mb-3">
+                  Can I use the app for free?
+                </h3>
+                <p className="text-lg leading-normal text-grey-darker mb-8">
+                  Yes! The app is 100% free. If you like the app, feel free to
+                  check out Deep's{" "}
+                  <a href="https://deeplydiligent.github.io/blog">Blog</a> and{" "}
+                  <a href="https://soundcloud.com/deeplydiligent-podcast">
+                    Podcast
+                  </a>
+                  .
+                </p>
+              </div>
+              <div className="w-full sm:w-1/2 px-6 py-6">
+                <h3 className="text-xl font-semibold leading-tight mb-3">
+                  I dont know much tech. How easy it is to use?
+                </h3>
+                <p className="text-lg leading-normal text-grey-darker mb-8">
+                  Simple as A, B, C.
+                  <br />
+                  A. <a href={extensionLink}>Download The Extension</a>
+                  <br />
+                  B. Open Moodle
+                  <br />
+                  C. Sync Your Data
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -221,63 +277,6 @@ class About extends Component {
             </div>
           </div>
         </section>
-
-        <section className="bg-white py-10">
-          <div className="w-5/6 max-w-lg ml-auto mr-auto mt-8 mb-8">
-            <div className="flex flex-col justify-center text-center pb-8">
-              <h2 className="text-5xl font-semibold leading-none mb-4">
-                Getting Started
-              </h2>
-            </div>
-
-            <div
-              className="bg-white rounded shadow-lg overflow-hidden"
-              style={{ height: "350px" }}
-            >
-              <iframe
-                className="embed-responsive-item"
-                src="https://www.youtube.com/embed/bWt4Bz8iNHo"
-                allowFullScreen=""
-                width="100%"
-                height="350"
-              />
-            </div>
-          </div>
-
-          <div className="w-5/6 max-w-md ml-auto mr-auto pt-8 mt-8 mb-8">
-            <div className="flex flex-wrap -mx-6 -my-6">
-              <div className="w-full sm:w-1/2 px-6 py-6">
-                <h3 className="text-xl font-semibold leading-tight mb-3">
-                  Can I use the app for free?
-                </h3>
-                <p className="text-lg leading-normal text-grey-darker mb-8">
-                  Yes! The app is 100% free. If you like the app, feel free to
-                  check out Deep's{" "}
-                  <a href="https://deeplydiligent.github.io/blog">Blog</a> and{" "}
-                  <a href="https://soundcloud.com/deeplydiligent-podcast">
-                    Podcast
-                  </a>
-                  .
-                </p>
-              </div>
-              <div className="w-full sm:w-1/2 px-6 py-6">
-                <h3 className="text-xl font-semibold leading-tight mb-3">
-                  I dont know much tech. How easy it is to use?
-                </h3>
-                <p className="text-lg leading-normal text-grey-darker mb-8">
-                  Simple as A, B, C.
-                  <br />
-                  A. <a href={extensionLink}>Download The Extension</a>
-                  <br />
-                  B. Open Moodle
-                  <br />
-                  C. Sync Your Data
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="bg-grey-lightest py-10">
           <div className="w-5/6 max-w-2xl ml-auto mr-auto mt-8">
             <div className="flex flex-col justify-center text-center pb-8">
@@ -299,8 +298,8 @@ class About extends Component {
                     <div className="bg-grey-light h-1 w-16 rounded" />
                   </div>
                   <div className="text-lg text-black leading-tight p-1">
-                    Loves Watching Lizard Videos&nbsp;
-                    <i className="fab fa-youtube" />
+                    Loves Watching Python Videos&nbsp;
+                    <i className="fab fa-snake" />
                   </div>
                   <div className="text-lg text-black leading-tight p-1">
                     IT Director at MASA | Lead Web Developer at Learnmate
@@ -331,8 +330,7 @@ class About extends Component {
                       IT Officer at MASA
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      Monash University: Accounting & Business Information
-                      Systems
+                      Monash University: Accounting & Software Development
                     </div>
                   </div>
                 </div>
@@ -349,15 +347,14 @@ class About extends Component {
                       <div className="bg-grey-light h-1 w-16 rounded" />
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      Loves Big Bang Theory&nbsp;
-                      <i className="fas fa-space-shuttle" />
+                      Enjoys Swimming from Sharks&nbsp;
+                      <i className="fas fa-frown-open" />
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      IT Officer at MASA
+                      Team Member at Accenture Digital - Machine Learning
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      Monash University: Accounting & Business Information
-                      Systems
+                      Studies Medicine at Monash University and Maths at Melbourne University
                     </div>
                   </div>
                 </div>
@@ -374,15 +371,14 @@ class About extends Component {
                       <div className="bg-grey-light h-1 w-16 rounded" />
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      Loves Big Bang Theory&nbsp;
-                      <i className="fas fa-space-shuttle" />
+                      Enjoys a Saturday Snooze&nbsp;
+                      <i className="fas fa-bed" />
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      IT Officer at MASA
+                      Freelance Web Designer and Developer
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      Monash University: Accounting & Business Information
-                      Systems
+                      Swinbourne University: Computer Science
                     </div>
                   </div>
                 </div>
@@ -399,15 +395,14 @@ class About extends Component {
                       <div className="bg-grey-light h-1 w-16 rounded" />
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      Loves Big Bang Theory&nbsp;
-                      <i className="fas fa-space-shuttle" />
+                      Knows His Coffee Well&nbsp;
+                      <i className="fas fa-mug-hot" />
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      IT Officer at MASA
+                      Lead Developer at Guac Tutor
                     </div>
                     <div className="text-lg text-black leading-tight p-1">
-                      Monash University: Accounting & Business Information
-                      Systems
+                      Monash University: Business Information Systems and Finance
                     </div>
                   </div>
                 </div>

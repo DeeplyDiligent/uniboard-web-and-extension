@@ -15,6 +15,8 @@ class Database {
     };
     firebase.initializeApp(config);
 
+    firebase.firestore().enablePersistence()
+
     this.db = firebase.firestore();
 
     //firebase.auth().onAuthStateChanged(this.changeAuthState);

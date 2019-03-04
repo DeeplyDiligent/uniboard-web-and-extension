@@ -41,12 +41,8 @@ class WelcomeToExtensionModal extends Component {
         <h2 className="pb-3 pr-10">Welcome to UniBoard version {this.state.version}!</h2>
         <p className="py-3 text-lg">The main changes in this version are</p>
         <div className="py-3 text-lg">
-          - Mobile compatibility (<a target="_blank" rel="noopener noreferrer" href="https://uniboard.app">https://uniboard.app/</a>) <br />
-          - All attachments put onto week cards<br />
-          - Search Feature (this is really useful) <br />
-          - Ability to minimise to go back to old moodle <br />
-          - Ability to download added back <br />
-          - this stuff is guuud
+          - Thanks to Yusuf, the customise page has been fixed and units can be force added by ID<br/>
+          - Unit names can be customized
         </div>
         <button
           onClick={this.onCloseModal}
