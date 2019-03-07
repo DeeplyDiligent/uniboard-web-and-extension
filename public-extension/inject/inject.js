@@ -65,6 +65,7 @@ function expandAndCheck(subjects) {
             $('#success-synopsis').fadeOut();
         },10000); 
 
+        console.log(subjectsattr)
         subjects.forEach(function (i) {
             subjectsattr[i]["innerHTML"] = $("#" + subjectsattr[i]["id"])
                 .parent()
@@ -144,11 +145,22 @@ function showSubjectSelector(subjectsSelected) {
             "<button class='mt-3 rounded-sm font-semibold tracking-wide text-white py-3 px-4' style='background-color: #7C4BFF;' id='saveSelection'>Next</button>"+
         "</div>"
     );
-    $(".js-example-basic-multiple.js-states.form-control").select2({
+    console.log(subjectsSelected)
+    selectObj = $(".js-example-basic-multiple.js-states.form-control")
+    selectObj.select2({
         data: allSubjects, 
-        tags: true
+        tags: true,
+        insertTag: function (data, tag) {
+            data.push(tag);
+        }
     });
-    $('.js-example-basic-multiple.js-states.form-control')
+    subjectsSelected.forEach(function(subject){
+        if(!selectObj.find("option[value='" + subject + "']").length){
+            var newOption = new Option(subject, subject, false, false);
+            selectObj.append(newOption).trigger('change');
+        }
+    })
+    selectObj
         .val(subjectsSelected)
         .trigger('change');
     $('.select2-container').attr('style','width:100%!important');
@@ -161,7 +173,6 @@ function saveSelection(){
     $('#loader').show();
     htmlOutput = ($(".js-example-basic-multiple.js-states.form-control").select2('data'));
     selectedSubjects = [];
-
     htmlOutput.forEach(function (i) {
         selectedSubjects.push(i['text']);
     });

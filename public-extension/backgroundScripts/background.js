@@ -34,6 +34,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
   chrome.storage.local.get(null, function(result) {
     if (result["sendDataOnline"]) {
       moodleData = result["MoodleBeast"];
+      userSettings = result["userData"];
       $.ajax({
         url: "https://lms.monash.edu/user/profile.php",
         context: document.body
@@ -45,6 +46,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
           )
           .html();
         var dataToSendOnline = { date: new Date() };
+        dataToSendOnline.userSettings = userSettings?userSettings:{}
         Object.keys(moodleData).map(function(i, j) {
           html = $(moodleData[i]["innerHTML"]);
           dataToSendOnline[i] = {};

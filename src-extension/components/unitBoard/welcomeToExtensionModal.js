@@ -42,7 +42,10 @@ class WelcomeToExtensionModal extends Component {
         <p className="py-3 text-lg">The main changes in this version are</p>
         <div className="py-3 text-lg">
           - Thanks to Yusuf, the customise page has been fixed and units can be force added by ID<br/>
-          - Unit names can be customized
+          - Unit names can be customized<br/>
+          - Content of each week shows up in sidebar (on extension only)<br/>
+          - Major bug fixed (extension would crash if cookies disabled)<br/>
+          - If there is a new column added to your web version, make sure you clear your cache!
         </div>
         <button
           onClick={this.onCloseModal}
