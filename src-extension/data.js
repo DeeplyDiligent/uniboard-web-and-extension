@@ -91,6 +91,7 @@ class Database {
   parseDataForApp(rawData) {
     rawData = this.parseDataForFirebase(rawData);
     delete rawData["date"];
+    delete rawData["userSettings"];
     let dict = {};
     for (const courseName in rawData) {
       const courseDict = rawData[courseName];
@@ -142,6 +143,34 @@ class Database {
       });
     });
     return dataArray;
+  }
+
+  getUserPreferences(key){
+    return new Promise(function(resolve, reject) {
+      chrome.storage.local.get('userData', function(result) {
+        if (result['userData']){
+          resolve(result['userData'][key])
+        }
+        resolve({});
+      });
+    });
+  }
+
+  updateUserPreferences(key, value, done) {
+    chrome.storage.local.get('userData', function(result) {
+      let oldData = result['userData'];
+      if (oldData){
+        oldData[key] = value;
+      } else {
+        oldData = {};
+        oldData[key] = value;
+      }
+      chrome.storage.local.set({userData: oldData}, done);
+    });
+  }
+
+  getBuildType(){
+    return 'extension'
   }
 
   _parseCourse(courseDict) {

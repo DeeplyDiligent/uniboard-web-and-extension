@@ -4,6 +4,7 @@ import database from "../../data";
 import RenderLogo from "../../renderLogo";
 import LinkButton from "../styledComponents/linkButton";
 import download from "../../download";
+import ViewEditTitle from "./viewEditTitle";
 
 
 class UnitBoard extends Component {
@@ -59,24 +60,20 @@ class UnitBoard extends Component {
               <RenderLogo color={borderColor} />
             </div>
           </div>
-          <div className="flex flex-col flex-grow mx-4 overflow-hidden">
+          <div className="flex flex-col flex-grow mx-1 overflow-hidden justify-center">
             {this.nameCanBeShortened(this.props.unitName) ? (
               <React.Fragment>
-                <span className=" text-3xl font-semibold">
-                  {database.shortenName(this.props.unitName)}
-                </span>
+                <ViewEditTitle unitName={this.props.unitName} />
                 <span
                   title={this.props.unitName}
-                  className="text-sm text-grey font-semibold whitespace-no-wrap overflow-hidden"
+                  className="text-sm text-grey font-semibold whitespace-no-wrap overflow-hidden px-2"
                   style={{ textOverflow: "ellipsis" }}
                 >
                   {this.props.unitName}
                 </span>
               </React.Fragment>
             ) : (
-              <span className="text-md font-semibold ml-4">
-                {this.props.unitName}
-              </span>
+              <ViewEditTitle unitName={this.props.unitName} />
             )}
           </div>
           <div onClick={this.startDownload} className="flex flex-col justify-center" title="Download All">

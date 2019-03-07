@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import database from "../../../data";
 import RenderLogo from "../../../renderLogo";
+import ViewEditTitle from "../viewEditTitle";
 class MobileUnitBoardMinimized extends Component {
   onClickCard = () => {
     this.props.maximiseItem(this.props.unitName, this.props.number);
@@ -49,20 +50,20 @@ class MobileUnitBoardMinimized extends Component {
             <div className="flex flex-col overflow-hidden">
               {this.nameCanBeShortened(this.props.unitName) ? (
                 <React.Fragment>
-                  <span className=" text-3xl font-semibold ml-4">
-                    {database.shortenName(this.props.unitName)}
+                  <span className=" text-3xl font-semibold">
+                    <ViewEditTitle unitName={this.props.unitName} />
                   </span>
                   <span
                     title={this.props.unitName}
-                    className="text-sm text-grey font-semibold ml-4 whitespace-no-wrap overflow-hidden"
+                    className="text-sm text-grey font-semibold whitespace-no-wrap overflow-hidden px-2"
                     style={{ textOverflow: "ellipsis" }}
                   >
                     {this.props.unitName}
                   </span>
                 </React.Fragment>
               ) : (
-                <span className="text-md font-semibold ml-4">
-                  {this.props.unitName}
+                <span className=" text-3xl font-semibold">
+                  <ViewEditTitle unitName={this.props.unitName} />
                 </span>
               )}
             </div>

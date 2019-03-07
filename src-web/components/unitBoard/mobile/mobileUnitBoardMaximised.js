@@ -2,8 +2,12 @@ import React, { Component } from "react";
 import database from "../../../data";
 import WeekCard from "../weekCard";
 import RenderLogo from "../../../renderLogo";
+import ViewEditTitle from "../viewEditTitle";
 class MobileUnitBoardMaximised extends Component {
   state = {};
+  nameCanBeShortened(name) {
+    return database.shortenName(name) !== name;
+  }
   render() {
     const colorList = [
       "#3e49bb",
@@ -43,7 +47,7 @@ class MobileUnitBoardMaximised extends Component {
               </div>
             </div>
             <span className=" text-3xl font-semibold ml-4">
-              {database.shortenName(this.props.unitName)}
+              <ViewEditTitle unitName={this.props.unitName} />
             </span>
           </div>
           <div className="flex mt-2">

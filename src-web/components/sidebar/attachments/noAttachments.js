@@ -18,7 +18,7 @@ class NoAttachments extends Component {
           className="text-center text-grey-light mt-10 text-3xl"
           style={{ flexGrow: "1" }}
         >
-          Nothing To See Here
+          No Attachments In This Section
         </div>
       </div>
     );

@@ -5,6 +5,8 @@ import TodoApp from './todoList/todoList'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import posed from 'react-pose';
 import NoAttachments from './attachments/noAttachments';
+import ShowWeekTestFromPage from './showWeekTextFromPage';
+import database from '../../data';
 
 const Box = posed.div({
         visible: { x: 0, transition: { duration: 300 } },
@@ -32,9 +34,9 @@ class Sidebar extends Component {
                     </Link>
                     <Box pose={this.state.isVisible ? 'visible' : 'hidden'} className="sidebarContent fixed bg-white max-w-sm rounded h-full shadow-lg px-8 py-4 w-full lg:w-1/3 h-full" style={styles.sidebar}>                    
                         <Link to='/home'>
-                        <div className="text-right pb-2 text-3xl">
-                            <i className="fas fa-times"></i>
-                        </div>
+                            <div className="text-right pb-2 text-3xl">
+                                <i className="fas fa-times"></i>
+                            </div>
                         </Link>
                         <div className="text-2xl font-bold">{this.props.match.params.id}</div>
                         {/* <div className="text">{this.props.match.params.id}</div> */}
@@ -43,6 +45,7 @@ class Sidebar extends Component {
                             <div className="flex-grow py-2">{weekData.name}</div>
                             <div className="py-2">Open Moodle <i className="fas fa-external-link-alt"></i></div>
                         </a>
+                        {database.getBuildType() === "extension"?<ShowWeekTestFromPage link={weekData.link} />:false}
                         <div className="mt-4">
                             {(weekData.files && weekData.files.length) ? <Attachments attachments={weekData.files} heading={"FILES"} icon={"fas fa-file"}/>: false}
                             {(weekData.assignments && weekData.assignments.length) ? <Attachments attachments={weekData.assignments} heading={"ASSIGNMENTS"} icon={"fas fa-clipboard"}/>: false}

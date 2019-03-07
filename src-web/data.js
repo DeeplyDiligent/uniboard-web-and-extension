@@ -2,6 +2,7 @@ import * as firebase from "firebase/app";
 import '@firebase/firestore';
 import he from "he";
 import { transform } from "lodash";
+import { isChrome } from "react-device-detect";
 
 class Database {
   constructor() {
@@ -26,6 +27,8 @@ class Database {
     let rawData = await this._getDictFromDatabaseId(databaseId);
     if (rawData) {
       delete rawData["date"];
+      this.settings = rawData["userSettings"];
+      delete rawData["userSettings"];
       let dict = {};
       for (const courseName in rawData) {
         const courseDict = rawData[courseName];
@@ -41,11 +44,20 @@ class Database {
     return this;
   }
 
+  getSubjectNames(){
+    if (typeof this.settings !== "undefined" && typeof this.settings.unittitles !== "undefined"){
+      return this.settings.unittitles
+    }
+    return {}
+  }
+
   onUpdate(func, noData) {
     this.databaseRef.onSnapshot(doc => {
       let rawData = doc.data();
       if (rawData) {
         delete rawData["date"];
+        this.settings = rawData["userSettings"]?rawData['userSettings']:{};
+        delete rawData["userSettings"];
         let dict = {};
         for (const courseName in rawData) {
           const courseDict = rawData[courseName];
@@ -90,6 +102,18 @@ class Database {
       });
     });
     return dataArray;
+  }
+
+  updateUserPreferences(key, value) {
+   return {}
+  }
+
+  getUserPreferences(){
+    return {}
+  }
+  
+  getBuildType(){
+    return 'web'
   }
 
   _parseCourse(courseDict) {
