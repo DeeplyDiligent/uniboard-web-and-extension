@@ -35,7 +35,7 @@ class ShowWeekTestFromPage extends Component {
     this.setState({
       text: this.getFullHtml(
         data,
-        "#section-" + this.section + " .content .modtype_label"
+        `#section-${this.section} .content .modtype_label, #section-${this.section} .content .summary`
       )
     });
   };
@@ -58,6 +58,7 @@ class ShowWeekTestFromPage extends Component {
         >
           <div
             id="pagecontent"
+            class="break-words"
             style={{ lineHeight: "2" }}
             dangerouslySetInnerHTML={this.setHtmlOfSidebar()}
           />
