@@ -70,7 +70,7 @@ class ShowWeekTestFromPage extends Component {
     return (
       <PerfectScrollbar
         style={{ height: "100px" }}
-        className="mt-3 overflow-x-hidden p-3 shadow rounded text-center"
+        className="mt-3 overflow-hidden p-3 shadow rounded text-center"
       >
         <i class="fas fa-circle-notch fa-spin text-5xl" />
       </PerfectScrollbar>
