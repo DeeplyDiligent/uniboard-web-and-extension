@@ -54,7 +54,7 @@ class ShowWeekTestFromPage extends Component {
       return (
         <PerfectScrollbar
           style={{ maxHeight: "26em", height: "auto" }}
-          className="mt-3 overflow-x-hidden p-3 shadow rounded"
+          className="mt-3 overflow-hidden p-3 shadow rounded"
         >
           <div
             id="pagecontent"

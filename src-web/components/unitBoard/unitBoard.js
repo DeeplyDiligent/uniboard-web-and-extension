@@ -3,6 +3,7 @@ import WeekCard from "./weekCard";
 import database from "../../data";
 import OptionsMenu from "./optionsMenu";
 import RenderLogo from "../../renderLogo";
+import PerfectScrollbar from "react-perfect-scrollbar";
 import AddEditTitle from "./viewEditTitle";
 class UnitBoard extends Component {
   state = { optionsHidden: true };
@@ -68,7 +69,7 @@ class UnitBoard extends Component {
             )}
           </div>
         </div>
-        <div className="px-4 py-2" style={{ overflowY: "scroll" }}>
+        <PerfectScrollbar className="px-4 py-2">
           {Object.keys(this.props.unitData).map((key, _) => {
             let value = this.props.unitData[key];
             return (
@@ -82,7 +83,7 @@ class UnitBoard extends Component {
               />
             );
           })}
-        </div>
+        </PerfectScrollbar>
       </div>
     );
   }

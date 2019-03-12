@@ -5,6 +5,7 @@ import RenderLogo from "../../renderLogo";
 import LinkButton from "../styledComponents/linkButton";
 import download from "../../download";
 import ViewEditTitle from "./viewEditTitle";
+import PerfectScrollbar from "react-perfect-scrollbar";
 
 
 class UnitBoard extends Component {
@@ -80,7 +81,7 @@ class UnitBoard extends Component {
             <LinkButton text={<i class="fas fa-file-export text-2xl my-2" />} />
           </div>
         </div>
-        <div className="px-4 py-2" style={{ overflowY: "scroll" }}>
+        <PerfectScrollbar className="px-4 py-2">
           {Object.keys(this.props.unitData).map((key, _) => {
             let value = this.props.unitData[key];
             return (
@@ -94,7 +95,7 @@ class UnitBoard extends Component {
               />
             );
           })}
-        </div>
+        </PerfectScrollbar>
       </div>
     );
   }

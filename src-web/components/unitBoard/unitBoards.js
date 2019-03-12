@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import UnitBoard from './unitBoard';
+import PerfectScrollbar from "react-perfect-scrollbar";
 
 
 class UnitBoards extends Component {
@@ -9,12 +10,12 @@ class UnitBoards extends Component {
   
     render() {
         return ( 
-            <div className="flex flex-grow max-w-full px-2" style={{ overflowX:"scroll", overflowY:"hidden"}}>
+            <PerfectScrollbar className="flex flex-grow max-w-full px-2">
             {Object.keys(this.props.data).map((key, index) => {
                 return <UnitBoard unitData={this.props.data[key]} unitName={key} unitCode={key.unitCode} key={key} number={index}/>
             })}
             <div>&nbsp;</div>
-            </div>
+            </PerfectScrollbar>
          )
     }
 }
