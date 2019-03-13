@@ -41,7 +41,7 @@ class WelcomeToExtensionModal extends Component {
         <h2 className="pb-3 pr-10">Welcome to UniBoard version {this.state.version}!</h2>
         <p className="py-3 text-lg">The main changes in this version are</p>
         <div className="py-3 text-lg">
-          - Dont see a unit is now an faq <br />
+          - Bug fixes and performance improvements <br />
         </div>
         <button
           onClick={this.onCloseModal}

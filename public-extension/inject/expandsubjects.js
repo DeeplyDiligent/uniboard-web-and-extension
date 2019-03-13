@@ -57,7 +57,7 @@ function expand(subjects,doneLoading) {
 
     createUserInputtedElements(subjects);
     //refresh links
-    navigationLinks = $(navigationLinks.selector);
+    navigationLinks = $(navigationLinksSelector);
     navigationLinks.each(function () {
         if ($(this).attr('title') != null && subjects.indexOf($(this).attr('title')) >= 0) {
             console.log('matching subject found');

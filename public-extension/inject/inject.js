@@ -309,7 +309,7 @@ function refreshPageIfNotLoggedIn(){
 }
 
 chrome
-    .extension
+    .runtime
     .sendMessage({}, function (response) {
         renderPage();
         var readyStateCheckInterval = setInterval(function () {
@@ -317,7 +317,8 @@ chrome
                 clearInterval(readyStateCheckInterval);
                 //navigation object
                 //newmoodle
-                navigationLinks = $("section[role='navigation'] a");
+                navigationLinksSelector = "section[role='navigation'] a"
+                navigationLinks = $(navigationLinksSelector);
                 navigation = $("section[role='navigation'] .content");
                 isCustomisePage = $('#page-header .singlebutton button').html()==="Customise this page"?false:true;
                 isAMoodlePage = $('#page-header .singlebutton button').length>0
