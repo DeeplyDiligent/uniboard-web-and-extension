@@ -41,8 +41,7 @@ class WelcomeToExtensionModal extends Component {
         <h2 className="pb-3 pr-10">Welcome to UniBoard version {this.state.version}!</h2>
         <p className="py-3 text-lg">The main changes in this version are</p>
         <div className="py-3 text-lg">
-          - Fixed Scrollbar on the sidebar content loaded from moodle<br/>
-          - Split line now works anywhere, not just if there is a space in the text<br/>
+          - Dont see a unit is now an faq <br />
         </div>
         <button
           onClick={this.onCloseModal}

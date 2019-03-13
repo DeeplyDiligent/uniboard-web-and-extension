@@ -36,7 +36,7 @@ function expandAndCheck(subjects) {
         progressBarAndCancel.html("");
         $('#progress-value').append('<div class="text-center m-2" id="progress-bar"></div>')
         var progressBar = $('#progress-bar');
-        progressBarAndCancel.append("<br/><button type='button' id='cancel-loading' class='m-auto rounded-sm tracking-wide text-white py-3 px-4' style='background-color: #7C4BFF;'>Cancel/Change Subjects</button>")
+        progressBarAndCancel.append("<br/><button type='button' id='cancel-loading' class='m-auto rounded-sm tracking-wide text-white py-3 px-4' style='background-color: #7C4BFF;'>Cancel</button>")
         $('#cancel-loading').click(function(){
             // clearTimeout(loadSubjects);
             cancelled = true;
@@ -135,7 +135,8 @@ function showSubjectSelector(subjectsSelected) {
     $("#loader").hide();
     $('<div id="subjects-div" class="bg-grey-lightest p-6"></div>').appendTo('#synopsis');
     $('#subjects-div').append("<div id='success-synopsis' style='text-align:center; display:none'>&#10004; Data Stored. <a href='#'>Click Here</a> to close this popup!</div>");
-    $('#subjects-div').append("<div class='text-center text-2xl font-normal text-grey-darker mb-3'>What subjects are you doing this semester?</div>");
+    $('#subjects-div').append("<div class='text-center text-2xl font-normal text-grey-darker'>What subjects are you doing this semester?</div>");
+    $('#subjects-div').append("<a href='https://medium.com/@deeplydiligent/faq-when-your-unit-is-not-listed-3f54a1813636' target='_blank' class='text-center text-sm font-normal text-grey-darker mb-3 block'>Don't See A Unit?</a>");
     //VALUE IS DIFFERENT FROM THE THING SHOWN!
     $('#subjects-div').append("<div style='display:table;margin:0 auto;width:100%'><select class='js-example-basic-multip" +
             "le js-states form-control js-programmatic-multi-set-val' id='subjects_select' mu" +
@@ -219,7 +220,7 @@ function renderPage(){
     //floating change subjects button
     $('#page-wrapper').append('<div id="floatingdivs" style="display:flex;position: fixed;transform: translateX(50%); height: 60px; z-index:10000;top: 5px; right: 50%;"></div>')
     $('#floatingdivs').append('<div style="width: 54px;height:60px;background-color: #8d61ff;color: #FFF;border-radius: 20px 0px 0px 20px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"> <img id="logo-spin" src="'+chrome.extension.getURL('img/uniboard-white-icon.svg')+'" style="width: 34px;margin-top: 12px;"></div>')
-    $('#floatingdivs').append('<a href="#" id="changesubjects" style="width: 134px;height:60px;background-color: #7C4BFF;color: #FFF;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Change Subjects</div></a>')
+    $('#floatingdivs').append('<a href="#" id="changesubjects" style="width: 150px;height:60px;background-color: #7C4BFF;color: #FFF;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Change Subjects</div></a>')
     $('#floatingdivs').append('<a href="#" id="refresh" style="width: 74px;height:60px;background-color: #7C4BFF;color: #FFF;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Refresh</div></a>')
     $('#floatingdivs').append('<a href="#" id="toggleminimize" style="width: 90px;height:60px;background-color: #7C4BFF;color: #FFF;border-radius: 0px 20px 20px 0px;text-align: center;box-shadow: 2px 2px 3px #999;" class="float"><div style="margin-top:17px">Minimize</div></a>')
     $('#page').css({width:$('body').width()});

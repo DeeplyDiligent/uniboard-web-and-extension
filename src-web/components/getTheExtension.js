@@ -12,8 +12,8 @@ class GetTheExtension extends Component {
           Hi there, we can't find your database record!<br /> 
           1. Please Check your internet connection and refresh the page<br />
           2. If you're new here, you can get the extension at the link
-          below.<br />
-          3. Please check that you have logged into the correct account.
+          below. Ensure you have clicked the phone button next to the search bar on the extension.<br />
+          3. Please check that you have logged into the correct account.<br />
         </div>
         <button
           onClick={this.logout}
